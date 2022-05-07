@@ -1,0 +1,109 @@
+﻿<style>
+    td button {
+        padding: 0px !important;
+        /*cursor:pointer !important;*/
+    }
+
+    .menuBtn {
+        margin-left: 3px;
+    }
+</style>
+<section>
+
+        <div class="card">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="card-body">
+                <form class="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><i class="ft-user-plus"></i> Lord Info Setup</h4>
+                            </div>
+                            <div class="col-md-6">
+
+                                <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                                    <i class="ft-x"></i> Clear
+                                </button>
+                                <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                    <i class="fa fa-check-square-o"></i> Save
+                                </button>
+                                <button type="button" id="btnListId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-list"></i> Lord List
+                                </button>
+                                <button type="button" id="btnCreateId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-user"></i> Add New Lord
+                                </button>
+
+                            </div>
+                        </div>
+                        <hr />
+                        <div id="lordInfoFormId">
+                            <input type="hidden" id="lordId" />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="ownerNameId">Owner Name</label>
+                                        <input class="form-control border-danger" type="text" placeholder="Enter Owner Name" id="ownerNameId">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="companyNameId">Company Name</label>
+                                        <input class="form-control border-danger" type="text" placeholder="Enter Company Name" id="companyNameId">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="companyAddressId">Company Address</label>
+                                        <input class="form-control border-danger" type="text" placeholder="Enter Company Address" id="companyAddressId">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phoneNumberId">Phone Number</label>
+                                        <input class="form-control" type="tel" placeholder="Enter Phone Number" id="phoneNumberId">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="emailId">Email</label>
+                                        <input class="form-control" type="email" placeholder="Enter Email" id="emailId">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="companyNameId">NID</label>
+                                        <input class="form-control" type="text" placeholder="Enter NID" id="nid">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div id="lordInfoListId">
+                            <table id="lordInfoListTableId" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Edit </th>
+                                        <th>Lord Name</th>
+                                        <th>Company Name</th>
+                                        <th>Company Address</th>
+                                        <th>Phone Number</th>
+                                        <th>Email</th>
+                                        <th>NID</th>
+                                    </tr>
+                                </thead>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+</section>
+<script src="~/Scripts/Application_Scripts/LordInfo.js"></script>

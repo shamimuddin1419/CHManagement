@@ -1,0 +1,267 @@
+﻿<section>
+    <div class="card">
+        <div class="card-body">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="row">
+                <div class="col-md-5">
+                    <h4><i class="ft-zoom-in"></i> Dish Bill Collection</h4>
+                    
+                </div>
+                <div class="col-md-7">
+                    <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                        <i class="ft-x"></i> Clear
+                    </button>
+                    <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                        <i class="fa fa-check-square-o"></i> Save Collection
+                    </button>
+                    <button type="button" id="btnListId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-list"></i> Collection List
+                    </button>
+                    <button type="button" id="btnCreateId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-user"></i> Generate New
+                    </button>
+                    <a class="btn btn-primary pull-right menuBtn" href="/DishBillGenerate/Index">
+                        <i class="fa fa-reply"></i> Go to Bill Generate
+                    </a>
+                    @*<button type="button" id="btnSearchId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-search"></i> Search
+                    </button>*@
+                </div>
+            </div>
+            <div class="row customerBillForm" style="padding-top:10px;">
+                <div class="col-md-5">
+                    <div class="form-group" style="color:white;font-weight:bold">                        
+                        Address : <label style="color: yellow !important; font-weight: bold !important;" id="lblCusAddBillForTop"></label>
+                    </div>
+                </div>
+           
+            <div class="col-md-4">
+                <div class="form-group" style="color: white; font-weight: bold">                  
+                    Monthly Bill : <label style="color: yellow !important; font-weight: bold !important;" id="lblMonthlyBillForTop"></label>
+                </div>
+            </div>
+
+                <div class="col-md-3">
+                    <div class="form-group" style="color: white; font-weight: bold">
+                        Entry Date : <label style="color: yellow !important; font-weight: bold !important;" id="lblEntryDateForTop"></label>
+                    </div>
+                </div>
+        </div>
+               <div class="row customerBillForm">
+                    <div class="col-md-5">
+                        <div class="form-group requiredFormGroup">
+                            <label for="customerId">Customer</label> (
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" checked value="Card">
+                                <label class="form-check-label" for="inlineRadio1">Card</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Mobile">
+                                <label class="form-check-label" for="inlineRadio2">Mobile</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Name">
+                                <label class="form-check-label" for="inlineRadio3">Name</label>
+                            </div>)
+                            <select class="form-control select2 border-danger" id="customerId" onchange="changeCustomer()">
+                                <option value="0" min="0">Select Customer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" style="color:red;font-weight:bold">
+                            <br />
+                            Total Due : <label style="color:red !important; font-weight:bold !important;" id="totalDueId"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row customerBillForm">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="connDateId">Conn Date</label>
+                            <input class="form-control" id="connectionMonthId" type="text" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="hostNameId">Host</label>
+                            <input class="form-control" id="hostNameId" type="text" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="hostPhoneId">Host Phone</label>
+                            <input class="form-control" id="hostPhoneId" type="text" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Zone</label>
+                            <input class="form-control" id="zoneNameId" type="text" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row customerBillForm">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6 connFeeFrmId">
+                                <div class="form-group">
+                                    <label for="addressId">Conn Fee</label>
+                                    <input class="form-control" id="connFeeId" type="number" value="0" min="0">
+                                </div>
+                            </div>
+                            <div class="col-md-6 connFeeFrmId">
+                                <br />
+                                <label id="connFeeDueId"></label>
+                            </div>
+                            <div class="col-md-6 reConnFeeFrmId">
+                                <div class="form-group">
+                                    <label for="addressId"> Re Conn Fee</label>
+                                    <input class="form-control" id="reConnFeeId" type="number" value="0" min="0">
+                                </div>
+                            </div>
+                            <div class="col-md-6 reConnFeeFrmId">
+                                <br />
+                                <label id="reconnFeeDueId"></label>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Month Bill</label>
+                                    <input class="form-control" id="monFeeId" type="number" readonly value="0" min="0">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <br />
+                                <label id="monthlyFeeDueId"></label>
+                            </div>
+                            <div class="col-md-6 otherFeeFrmId">
+                                <div class="form-group">
+                                    <label>Others Amount</label>
+                                    <input class="form-control" id="otherFeeId" type="number" value="0" min="0">
+                                </div>
+                            </div>
+                            <div class="col-md-6 otherFeeFrmId">
+                                <div class="form-group">
+                                    <br />
+                                    <label id="otherFeeDueId"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 shiftingFeeFormId">
+                                <div class="form-group">
+                                    <label>Shifting Charge</label>
+                                    <input class="form-control" id="shiftingFeeId" type="number" value="0" min="0">
+                                </div>
+                            </div>
+                            <div class="col-md-6 shiftingFeeFormId">
+                                <div class="form-group">
+                                    <br />
+                                    <label id="shiftingFeeDueId"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Net Amount</label>
+                                    <input class="form-control" id="netAmountId" type="number" value="0" min="0" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Discount</label>
+                                    <input class="form-control" id="discountId" type="number" value="0" min="0">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Adjust from Advance</label>
+                                    <input class="form-control" id="advanceId" type="number" value="0" min="0">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Receive Amount</label>
+                                    <input class="form-control" id="receiveAmountId" type="number" value="0" min="0">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group requiredFormGroup">
+                                    <label>Page No</label>
+                                    <input class="form-control" id="pageNoId" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group requiredFormGroup">
+                                    <label>Serial No</label>
+                                    <input class="form-control" id="SlNoId" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Collection Date</label>
+                                    <div class='input-group date ' id='collectionDateId'>
+                                        <input type='text' class="form-control border-danger" />
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <span class="fa fa-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group requiredFormGroup">
+                                    <label>Collected By/Employee</label>
+                                    <select class="form-control select2" id="collectedById">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group requiredFormGroup">
+                                    <label>Received By Admin</label>
+                                    <select class="form-control select2" id="receivedById">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Remarks</label>
+                                    <input class="form-control" id="remarksId" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body border" id="monthlyDueListPanel">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="customerBillListId" class="billList table-responsive">
+                    <table id="customerBillListTableId" class="dataTable table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Dlt</th>
+                                <th>Ref No</th>
+                                <th>CardNo</th>
+                                <th>Name</th>
+                                <th>ConFee</th>                               
+                                <th>CollDate</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>MonthlyFee</th>
+                                <th>SftFee</th>
+                                <th>NetAmt</th>
+                                <th>RcvAmt</th>
+                                <th>ReConFee</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+    </div>
+</section>
+
+<script src="~/Scripts/Application_Scripts/DishBillCollectionModified.js"></script>

@@ -1,0 +1,56 @@
+﻿<section>
+        <div class="card">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="card-body">
+                <form class="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><i class="ft-user-plus"></i> User Page Mapping</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                    <i class="fa fa-check-square-o"></i> Update Mapping
+                                </button>
+
+                            </div>
+                         </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="userId">User</label>
+                                    <select class="select2 border-danger" id="userId">
+                                        <option value="0">Select User</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="pageListId">
+                            <table id="pageListTableId" class="table table-striped table-bordered responsive dataex-select-checkbox" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>pageId</th>
+                                        <th>Page Name</th>
+                                        <th>Page Url</th>
+                                        <th>Page Type</th>
+                                    </tr>
+                                </thead>
+
+                            </table>
+                        </div>
+                        @*<div class="row">
+                            <div class="col-md-12">
+                                <button type="button" id="btnSaveId" class="btn btn-success pull-right">
+                                    <i class="fa fa-check-square-o"></i> Update Mapping
+                                </button>
+                            </div>
+                        </div>*@
+                    </div>
+                </form>
+            </div>
+        </div>
+</section>
+
+<script src="~/Scripts/Application_Scripts/UserPageMapping.js"></script>

@@ -1,0 +1,27 @@
+﻿<div class="row customerBillForm">
+    <div class="col-md-5">
+        <div class="form-group requiredFormGroup">
+            <label for="customerId">Customer</label>
+            <select class="form-control select2 border-danger" id="customerId" onchange="changeCustomer()">
+                <option value="0">Select Customer</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <br />
+        <div class="table-responsive">
+            <table id="tblHist" class="table table-active  table-bordered">
+                <thead>
+                    <tr>
+                        <th>Bill Type</th>
+                        <th>Bill Amount</th>
+                        <th>Month</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody id="tblHistTbody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

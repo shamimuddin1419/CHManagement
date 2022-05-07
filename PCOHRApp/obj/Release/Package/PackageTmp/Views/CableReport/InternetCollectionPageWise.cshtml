@@ -1,0 +1,63 @@
+﻿<section>
+    <div class="card">
+        @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+        <div class="card-body">
+            <form class="form">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4><i class="ft-user-plus"></i> Collection Details(Internet)</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                <i class="fa fa-check-square-o"></i> Generate Report
+                            </button>
+                            <button type="button" id="btnExcelId" class="btn btn-info pull-right menuBtn">
+                                <i class="fa fa-file-excel-o"></i> Generate Excel
+                            </button>
+                            <button type="button" id="btnWordId" class="btn btn-info pull-right menuBtn">
+                                <i class="fa fa-file-word-o"></i> Generate Word
+                            </button>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group requiredFormGroup">
+                                <label for="yearId">Year</label>
+                                <select class="form-control select2 border-danger" id="yearId">
+                                    <option value="0">Select Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Received By</label>
+                                <select class="form-control select2" id="receivedById" onchange="getPages()">
+                                    <option value="0">Select</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Page No</label>
+                                <select class="form-control select2" id="pageNoId">
+                                    <option value="0">Select</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+
+                    </div>
+                    <div class="row" id="reportId">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/Application_Scripts/InternetCollectionPageWise.js"></script>
+

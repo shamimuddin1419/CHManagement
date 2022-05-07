@@ -1,0 +1,247 @@
+﻿<style>
+    /*.requiredFormGroup .select2-container--default .select2-selection--single {
+        border: 1px solid #ff7588 !important;
+    }*/
+
+    td button {
+        padding: 0px !important;
+        /*cursor:pointer !important;*/
+    }
+
+    .menuBtn {
+        margin-left: 3px;
+    }
+    /*.switchery{
+        margin-top:25px;
+    }*/
+</style>
+<section>
+
+        <div class="card">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="card-body">
+                <form class="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><i class="ft-user-plus"></i> Internet Customer Setup</h4>
+                            </div>
+                            <div class="col-md-6">
+
+                                <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                                    <i class="ft-x"></i> Clear
+                                </button>
+                                <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                    <i class="fa fa-check-square-o"></i> Save
+                                </button>
+                                @*<button type="button" id="btnListId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-list"></i> Customer List
+                                </button>*@
+                                <button type="button" id="btnCreateId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-user-plus"></i> Add New Customer
+                                </button>
+
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div id="customerFormId" class=" col-md-5">
+                                <div class="row">
+                                    <div class="col-md-6" id="customerSerialDivId">
+                                        <div class="form-group">
+                                            <label for="customerSerialId">Serial</label>
+                                            <input class="form-control border-danger" type="text" disabled id="customerSerialId">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 customerSerialPrefixDivId">
+                                        <div class="form-group requiredFormGroup">
+                                            <label for="customerSerialPrefixId">Serial Prefix</label>
+                                            <select class="form-control select2 border-danger" id="customerSerialPrefixId">
+                                                <option value="0">Select</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 customerSerialPrefixDivId">
+                                        <div class="form-group">
+                                            <label for="customerId">Serial</label>
+                                            <input class="form-control border-danger" type="text" placeholder="Enter Serial" id="customerId">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="customerNameId">Customer Name</label>
+                                            <input class="form-control input-sm border-danger" type="text" placeholder="Enter Customer Name" id="customerNameId">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Phone Number</label>
+                                            <input class="form-control border-primary border-danger" id="phoneNumberId" type="tel" placeholder="Enter Customer Phone Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group ui-widget">
+                                            <label for="addressId">Address</label>
+                                            <input class="form-control border-primary" id="addressId" type="text" placeholder="Enter Customer Address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Required Net</label>
+                                            <input class="form-control border-primary" id="requiredNetId" type="text" placeholder="Enter Customer Required Net">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <label for="ipAddressId">IP Address</label>
+                                            <input class="form-control border-primary" id="ipAddressId" type="text" placeholder="Enter IP Address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group requiredFormGroup">
+                                            <label for="hostId" class="hostId">Host</label>
+                                            <select class="form-control select2 border-danger" id="hostId" onchange="onChangeHost()">
+                                                <option value="0">Select Host</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 requiredFormGroup">
+                                        <div class="form-group">
+                                            <label for="hostPhoneId" class="hostId">Host Phone</label>
+                                            <select class="form-control select2 border-danger" id="hostPhoneId" onchange="onChangePhone()">
+                                                <option value="0">Select Host Phone</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group requiredFormGroup">
+                                            <label for="zoneId">Zone</label>
+                                            <select class="form-control select2 border-danger" id="zoneId">
+                                                <option value="0">Select Zone</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="assignedUserId requiredFormGroup">Assigned User</label>
+                                            <select class="form-control select2 border-danger" id="assignedUserId">
+                                                <option value="0">Select Assigned Person</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="connFeeId">Connection Fee</label>
+                                            <input class="form-control " type="number" value="0" placeholder="Enter Connection Fee" id="connFeeId">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="monthBillId">Month Bill</label>
+                                            <input class="form-control " type="number" value="0" placeholder="Enter Month Bill" id="monthBillId">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group requiredFormGroup">
+                                            <label for="connMonthId">Connection Month</label>
+                                            <select class="form-control select2 border-danger" id="connMonthId">
+                                                <option value="0">Select Connection Month</option>
+                                                <option value="January">January</option>
+                                                <option value="February">February</option>
+                                                <option value="March">March</option>
+                                                <option value="April">April</option>
+                                                <option value="May">May</option>
+                                                <option value="June">June</option>
+                                                <option value="July">July</option>
+                                                <option value="August">August</option>
+                                                <option value="September">September</option>
+                                                <option value="October">October</option>
+                                                <option value="November">November</option>
+                                                <option value="December">December</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group requiredFormGroup">
+                                            <label for="connYearId">Connection Year</label>
+                                            <select class="form-control select2 border-danger" id="connYearId">
+                                                <option value="0">Select Connection Year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="othersAmountId">Other Amount</label>
+                                            <input class="form-control " type="number" value="0" placeholder="Enter Others Amount" id="othersAmountId">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="EntryDateDateId1">Entry Date</label>
+                                            <div class='input-group date' id='EntryDateDateId'>
+                                                <input type='text' class="form-control border-danger" />
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">
+                                                        <span class="fa fa-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="OnueMc">Onu-MC</label>
+                                            <input class="form-control " type="text" placeholder="Enter Onu-MC" id="OnuMCId">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="isActive" class="switchery switchery-small" checked />
+                                            <label for="isActive" class="font-medium-2 text-bold-600 ml-1">Is Active</label>&nbsp;
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+
+                            </div>
+                        <div id="customerListId" class="col-md-7 small" style="width : 100%" >
+                            <table id="customerListTableId" class="table table-bordered  table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Edit </th>
+                                        <th>Serial</th>
+                                        <th>Name</th>
+                                        <th>Phone Number</th>
+                                        <th>Host</th>
+                                        <th>Zone</th>
+                                        <th>Assigned To</th>
+                                        <th>Active</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+</section>
+<script src="~/Scripts/Application_Scripts/InternetCustomer.js"></script>

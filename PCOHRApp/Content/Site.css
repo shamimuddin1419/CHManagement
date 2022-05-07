@@ -1,0 +1,95 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+.select2 {
+    width: 100% !important;
+}
+
+.menuBtn {
+    margin-left: 3px;
+}
+.card,.card-header{
+    background-color:#072428 !important;
+    color:white !important;
+}
+
+.dataTables_wrapper{
+    background-color:white !important;
+    color:black !important; 
+}
+.form-group label{
+    color:white !important;
+}
+.dataTables_length{
+    color : black !important;
+}
+table{
+    background-color:white !important;
+}
+
+.requiredFormGroup .select2-containers--default .select2-selection--single{
+    
+    border : 11px solid #aaa !important;
+    /*border: 1px solid #ff7588 !important; --old*/
+}
+input[type=text].form-control.form-control-lg,input[type=password].form-control.form-control-lg{
+    
+    border-radius: 0rem !important;
+    height:2.5rem !important;
+}
+span.select2-selection--single,input[type=text].form-control,input[type=number].form-control,input[type=tel].form-control,input[type=email].form-control,.input-group-append {
+    /*font-size: .8rem !important;*/
+    border-radius: 0rem !important;
+    height: 2em !important;
+    border: 1px solid #ccd6e6 !important
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444 !important;
+    line-height: 15px !important;
+}
+.form-control,.select2-selection{
+    font-weight: bold !important;
+}
+
+.form-control:focus, .select2-selection:focus {
+        outline: 2px solid red !important;
+        box-shadow: 0 0 10px #719ECE !important;
+    }
+.select2-selection__arrow{
+    top:0px !important;
+}
+.form-control-position{
+    top:0px !important;
+}
+
+td button {
+    padding: 0px !important;
+    /*cursor:pointer !important;*/
+}
+.border-danger,.border-primary{
+    border : 1px #ccd6e6 solid  !important;
+}
+.dataTables_wrapper .dataTables_paginate {
+    padding-top: 2em !important;
+    padding-right: 60px !important;
+}
+
+form .form-group {
+    margin-bottom: 0.5rem !important;
+}
+

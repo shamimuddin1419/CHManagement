@@ -1,0 +1,129 @@
+﻿<style>
+    /*.select2-container--default .select2-selection--single {
+        border: 1px solid #ff7588 !important;
+    }*/
+    td button{
+        padding : 0px !important;
+        /*cursor:pointer !important;*/
+    }
+    .menuBtn{
+        margin-left:3px;
+    } 
+</style>
+<section>
+    
+
+        <div class="card">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="card-body">
+                <form class="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><i class="ft-user-plus"></i> User Registration</h4>
+                            </div>
+                            <div class="col-md-6">
+
+                                <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                                    <i class="ft-x"></i> Clear
+                                </button>
+                                <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                    <i class="fa fa-check-square-o"></i> Save
+                                </button>
+                                <button type="button" id="btnListId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-list"></i> User List
+                                </button>
+                                <button type="button" id="btnCreateId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-user"></i> Register User
+                                </button>
+
+                            </div>
+                        </div>
+                        <hr />
+                        <div id="registrationFormId">
+                            <input type="hidden" id="userId" />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="userFullNameId">Full Name</label>
+                                        <input class="form-control border-danger" type="text" placeholder="Enter Full Name" id="userFullNameId">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="userDesignationId">Designation</label>
+                                        <select class="form-control select2 border-danger" id="userDesignationId">
+                                            <option value="0">Select Designation</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="userNameId">User Name</label>
+                                        <input class="form-control border-danger" type="text" placeholder="Enter User Name" id="userNameId">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="userEmailId">Email</label>
+                                        <input class="form-control border-primary" type="email" placeholder="Enter Email" id="userEmailId">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="passwordId">Password</label>
+                                        <input class="form-control border-danger" type="text" placeholder="*********" id="passwordId">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Contact Number</label>
+                                        <input class="form-control border-primary" id="contactNumberId" type="tel" placeholder="Enter Contact Number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="addressId">Address</label>
+                                <textarea id="addressId" rows="5" class="form-control border-primary" name="address" placeholder="Enter Address"></textarea>
+                            </div>
+                            <div class="form-group pb-1">
+                                <input type="checkbox" id="isAdminId" class="switchery switchery-small" />
+                                <label for="isAdminId" class="font-medium-2 text-bold-600 ml-1">Is Admin</label>&nbsp;
+                                <input type="checkbox" id="isCableUser" class="switchery switchery-small" />
+                                <label for="isCableUser" class="font-medium-2 text-bold-600 ml-1">Is Cable Operator User</label>&nbsp;
+                                <input type="checkbox" id="isHouseUser" class="switchery switchery-small" />
+                                <label for="isHouseUser" class="font-medium-2 text-bold-600 ml-1">Is House Rent User</label>&nbsp;
+                                <input type="checkbox" id="isActive" class="switchery switchery-small" checked/>
+                                <label for="isActive" class="font-medium-2 text-bold-600 ml-1">Is Active</label>&nbsp;
+                            </div>
+                        </div>
+                        <div id="userListId">
+                            <table id="userListTableId" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Edit </th>
+                                        <th>Full Name</th>
+                                        <th>userName</th>
+                                        <th>Designation</th>
+                                        <th>Phone Number</th>
+                                        <th>Email</th>
+                                        <th>Admin</th>
+                                        <th>Cable</th>
+                                        <th>House Rent</th>
+                                        <th>Active</th>
+                                    </tr>
+                                </thead>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+</section>
+<script src="~/Scripts/Application_Scripts/Registration.js"></script>

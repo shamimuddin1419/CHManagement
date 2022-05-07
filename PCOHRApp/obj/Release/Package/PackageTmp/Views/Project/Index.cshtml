@@ -1,0 +1,130 @@
+﻿<style>
+    td button {
+        padding: 0px !important;
+        /*cursor:pointer !important;*/
+    }
+
+    .menuBtn {
+        margin-left: 3px;
+    }
+</style>
+<section>
+
+        <div class="card">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="card-body">
+                <form class="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><i class="ft-user-plus"></i> Project Setup</h4>
+                            </div>
+                            <div class="col-md-6">
+
+                                <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                                    <i class="ft-x"></i> Clear
+                                </button>
+                                <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                    <i class="fa fa-check-square-o"></i> Save
+                                </button>
+                                <button type="button" id="btnListId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-list"></i> Project List
+                                </button>
+                                <button type="button" id="btnCreateId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-user"></i> Add New Project
+                                </button>
+
+                            </div>
+                        </div>
+                        <hr />
+                        <div id="projectFormId" class="projectForm">
+                            <input type="hidden" id="projectId" />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="projectNameId">Project Name</label>
+                                        <input class="form-control border-danger" type="text" placeholder="Enter Project Name" id="projectNameId">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group requiredFormGroup" >
+                                        <label for="projectTypeId">Project Type</label>
+                                        <select class="form-control select2 border-danger" id="projectTypeId">
+                                            <option value="0">Select Project Type</option>
+                                            <option value="Colony">Colony</option>
+                                            <option value="Apartment">Apartment</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="projectAddressId">Project Address</label>
+                                        <textarea class="form-control border-danger" placeholder="Enter Project Address" id="projectAddressId"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="projectDescriptionId">Project Description</label>
+                                        <textarea class="form-control " placeholder="Enter Project Description" id="projectDescriptionId"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div id="projectListId">
+                            <table id="projectListTableId" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Edit </th>
+                                        <th>Project Name</th>
+                                        <th>Project Address</th>
+                                        <th>Project Type</th>
+                                        <th>Apartment Type</th>
+                                    </tr>
+                                </thead>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="card projectForm">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="careTakerId">Care Taker</label>
+                            <select class="form-control select2" id="careTakerId">
+                                <option value="0">Select CareTaker</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label></label>
+                        <button class="btn btn-success" id="careTakerAddId" style="margin-top:15%;">Add</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table id="careTakerTableId" class="table table-responsive table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Mobile</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="careTakerBodyId" ></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<script src="~/Scripts/Application_Scripts/Project.js"></script>

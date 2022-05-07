@@ -1,0 +1,114 @@
+﻿<section>
+    <div class="card">
+        <div class="card-body">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="row">
+                <div class="col-md-6">
+                    <h4><i class="ft-zoom-in"></i>Dish Connection Date Modify</h4>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                        <i class="ft-x"></i> Clear
+                    </button>
+                    <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                        <i class="fa fa-check-square-o"></i>Save
+                    </button>
+                </div>
+            </div>
+            <div class="row customerBillForm">
+                <div class="col-md-5">
+                    <div class="form-group requiredFormGroup">
+                        <label for="customerId">Customer</label>
+                        <select class="form-control select2 border-danger" id="customerId" onchange="changeCustomer()">
+                            <option value="0">Select Customer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="lblPassword">Password</label>
+                        <input class="form-control" id="txtPassword" type="password" autocomplete="off">
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="row customerBillForm">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="connDateId">Conn Date</label>
+                        <input class="form-control" id="connectionMonthId" type="text" readonly>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="hostNameId">Host</label>
+                        <input class="form-control" id="hostNameId" type="text" readonly>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="hostPhoneId">Host Phone</label>
+                        <input class="form-control" id="hostPhoneId" type="text" readonly>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Zone</label>
+                        <input class="form-control" id="zoneNameId" type="text" readonly>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="connFeeId">Connection Fee</label>
+                        <input class="form-control " type="number" value="0" placeholder="Enter Connection Fee" id="connFeeId">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="monthBillId">Month Bill</label>
+                        <input class="form-control " type="number" value="0" placeholder="Enter Month Bill" id="monthBillId">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group requiredFormGroup">
+                        <label for="connMonthId">Connection Month</label>
+                        <select class="form-control select2 border-danger" id="connMonthId">
+                            <option value="0">Select Connection Month</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group requiredFormGroup">
+                        <label for="connYearId">Connection Year</label>
+                        <select class="form-control select2 border-danger" id="connYearId">
+                            <option value="0">Select Connection Year</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/Application_Scripts/DishConnectionDateModify.js"></script>

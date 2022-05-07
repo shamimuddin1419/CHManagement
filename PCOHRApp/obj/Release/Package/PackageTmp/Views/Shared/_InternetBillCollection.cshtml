@@ -1,0 +1,128 @@
+﻿<div class="card customerBillForm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Connection Fee</label>
+                    <input class="form-control" id="connFeeId" type="number" value="0">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Reconnection Fee</label>
+                    <input class="form-control" id="reConnFeeId" type="number" value="0">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Others Amount</label>
+                    <input class="form-control" id="otherFeeId" type="number" value="0">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Total Monthly Fee</label>
+                    <input class="form-control" id="monFeeId" type="number" readonly value="0">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>From Month</label>
+                    <select class="form-control select2" id="fromMonthId">
+                        <option value="0">Select Month</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>To Month</label>
+                    <select class="form-control select2" id="toMonthId" onchange="ChangeToMonth()">
+                        <option value="0">Select Month</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Shifting Charge</label>
+                    <input class="form-control" id="shiftingFeeId" type="number" value="0"> 
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label>Description</label>
+                    <input class="form-control" id="descriptionId" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Net Amount</label>
+                    <input class="form-control" id="netAmountId" type="number" value="0">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Receive Amount</label>
+                    <input class="form-control border-danger" id="receiveAmountId" type="number" value="0">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Adjust from Advance</label>
+                    <input class="form-control" id="advanceId" type="number" value="0">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Customer Serial No</label>
+                    <input class="form-control" id="custSLId" type="text">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Page No</label>
+                    <input class="form-control" id="pageNoId" type="text">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group requiredFormGroup">
+                    <label>Collected By</label>
+                    <select class="form-control select2" id="collectedById">
+                        <option value="0">Select</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Received By</label>
+                    <select class="form-control select2" id="receivedById">
+                        <option value="0">Select</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Collection Date</label>
+                    <div class='input-group date ' id='collectionDateId'>
+                        <input type='text' class="form-control border-danger" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

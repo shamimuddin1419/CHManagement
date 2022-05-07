@@ -1,0 +1,70 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>From Date</label>
+                <div class='input-group date ' id='fromDateId'>
+                    <input type='text' class="form-control border-danger" />
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <span class="fa fa-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>From Date</label>
+                <div class='input-group date requiredFormGroup' id='toDateId'>
+                    <input type='text' class="form-control border-danger" />
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <span class="fa fa-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group requiredFormGroup">
+                <label>Collected By</label>
+                <select class="form-control select2" id="collectedById">
+                    <option value="0">Select</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group requiredFormGroup">
+                <label>Received By</label>
+                <select class="form-control select2" id="receivedById">
+                    <option value="0">Select</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <table id="customerBillListTableId" class="table table-info table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>VoucherNo</th>
+                <th>Card No. </th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>FromDate</th>
+                <th>ToDate</th>
+                <th>Amount</th>
+                <th>RcvDate</th>
+                <th>Page No</th>
+                <th>Customer SL</th>
+               
+         
+            </tr>
+        </thead>
+
+    </table>
+</div>

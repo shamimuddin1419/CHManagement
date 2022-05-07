@@ -1,0 +1,82 @@
+﻿<section>
+
+        <div class="card">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="card-body">
+                <form class="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><i class="ft-user-plus"></i> All Customer Details(Dish)</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                    <i class="fa fa-check-square-o"></i> Generate Report
+                                </button>
+                                <button type="button" id="btnExcelId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-file-excel-o"></i> Generate Excel
+                                </button>
+                                <button type="button" id="btnWordId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-file-word-o"></i> Generate Word
+                                </button>
+
+                            </div>
+                            
+                        </div>
+
+                        <div class="row" style="padding-top:10px">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="activeStatusId">Active Status</label>
+                                    <select class="form-control select2" id="activeStatusId">
+                                        <option value="">All</option>
+                                        <option value="1">Active</option>
+                                        <option value="0">InActive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="zoneId">Zone</label>
+                                    <select class="form-control select2" id="zoneId">
+                                        <option value="0">All Zone</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group requiredFormGroup">
+                                    <label for="customerSerialPrefixId">Serial Prefix</label>
+                                    <select class="form-control select2 border-danger" id="customerSerialPrefixId">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="assignedUserId requiredFormGroup">Assigned User</label>
+                                    <select class="form-control select2 border-danger" id="assignedUserId">
+                                        <option value="0">Select Assigned Person</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group requiredFormGroup">
+                                    <label for="hostId" class="hostId">Host</label>
+                                    <select class="form-control select2 border-danger" id="hostId">
+                                        <option value="0">Select Host</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="reportId">
+
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+</section>
+<script src="~/Scripts/Application_Scripts/AllDishCustomerDetails.js"></script>
+

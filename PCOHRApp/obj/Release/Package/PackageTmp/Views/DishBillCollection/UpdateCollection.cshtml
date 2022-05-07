@@ -1,0 +1,28 @@
+﻿<section>
+        <div class="card">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4><i class="ft-zoom-in"></i>Update Dish Bill Collection</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                            <i class="fa fa-check-square-o"></i> Update Collection
+                        </button>
+                        <button type="button" id="btnSearchId" class="btn btn-info pull-right menuBtn">
+                            <i class="fa fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+                @Html.Partial("~/Views/Shared/_UpdateCollectionSearch.cshtml")
+            </div>
+        </div>
+
+</section>
+<script src="~/Scripts/Application_Scripts/UpdateDishCollection.js"></script>
+
+
+
+
+

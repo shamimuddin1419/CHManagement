@@ -1,0 +1,114 @@
+﻿<div class="card customerRequestForm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="requestTypeId">Request Type</label>
+                    <select class="form-control select2 border-danger" id="requestTypeId" onchange="onReqTypeChanged()">
+                        <option value="0">Select Request Type</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group" id="requestChargeFormGroup">
+                    <label for="requestChargeId">Request Charge</label>
+                    <input type="number" id="requestChargeId" placeholder="Enter Charge" value="0" class="form-control border-danger">
+                </div>
+                <div class="form-group" id="updatedMonthlyBillFormGroup">
+                    <label for="updatedMonthlyBillId">New Monthly Bill</label>
+                    <input type="number" id="updatedMonthlyBillId" placeholder="Enter Monthly Bill" class="form-control border-danger">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" id="requiredNetDiv">
+                <div class="form-group">
+                    <label>Required Net</label>
+                    <input class="form-control border-danger" id="requiredNetId" type="text" placeholder="Enter Customer Required Net">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="remarksId">Remarks</label>
+                    <input class="form-control" type="text" placeholder="Enter Remarks" id="remarksId">
+                </div>
+            </div>
+            <div class="col-md-6 shiftingRow">
+                <div class="form-group ui-widget">
+                    <label for="addressId">Address</label>
+                    <input class="form-control border-primary" id="addressId" type="text" placeholder="Enter Customer Address">
+                </div>
+            </div>
+        </div>
+        <div class="row shiftingRow">
+            <div class="col-md-6">
+                <div class="form-group requiredFormGroup">
+                    <label for="hostId" class="hostId">Host</label>
+                    <select class="form-control select2 border-danger" id="hostId" onchange="onChangeHost()">
+                        <option value="0">Select Host</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 requiredFormGroup">
+                <div class="form-group">
+                    <label for="hostPhoneId" class="hostId">Host Phone</label>
+                    <select class="form-control select2 border-danger" id="hostPhoneId" onchange="onChangePhone()">
+                        <option value="0">Select Host Phone</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row shiftingRow">
+            <div class="col-md-6">
+                <div class="form-group requiredFormGroup">
+                    <label for="zoneId">Zone</label>
+                    <select class="form-control select2 border-danger" id="zoneId">
+                        <option value="0">Select Zone</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="assignedUserId requiredFormGroup">Assigned User</label>
+                    <select class="form-control select2 border-danger" id="assignedUserId">
+                        <option value="0">Select Assigned Person</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row disconnectRow">
+            <div class="col-md-6">
+                <div class="form-group requiredFormGroup">
+                    <label for="requestMonthId">Effective Month</label>
+                    <select class="form-control select2 border-danger" id="requestMonthId">
+                        <option value="0">Select Month</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group requiredFormGroup">
+                    <label for="requestYearId ">Effective Year</label>
+                    <select class="form-control select2 border-danger" id="requestYearId">
+                        <option value="0">Select Year</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>

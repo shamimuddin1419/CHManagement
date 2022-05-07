@@ -1,0 +1,62 @@
+﻿<style>
+    /*.content{
+        margin :120px !important;
+    }*/
+</style>
+<div class="content-body">
+    <section class="flexbox-container">
+        <div class="col-12 d-flex align-items-center justify-content-center">
+            <div class="col-lg-4 col-md-8 col-10 box-shadow-2 p-0">
+                <div class="card border-grey border-lighten-3 m-0">
+                    <div class="card-header border-0">
+                        <div class="card-title text-center">
+                            <div class="p-1"><img src="~/Content/Theme/app-assets/images/logo/stack-logo-light.png" alt="branding logo"></div>
+                        </div>
+                        <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2" ><span style="color:white;background-color:#072428 !important;">Login to your Account</span></h6>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form class="form-horizontal form-simple" novalidate>
+                                <fieldset class="form-group position-relative has-icon-left mb-0">
+                                    <input type="text" class="form-control form-control-lg" id="userNameId" placeholder="Your Username" required>
+                                    <div class="form-control-position">
+                                        <i class="ft-user"></i>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form-group position-relative has-icon-left mb-0">
+                                    <input type="password" class="form-control form-control-lg" id="passwordId" placeholder="Enter Password" required>
+                                    <div class="form-control-position">
+                                        <i class="fa fa-key"></i>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form-group position-relative">
+                                    <select class="select2 form-control form-control-lg" id="appTypeId" style="height:75%" required>
+                                        <option value="0">Select Type</option>
+                                        <option value="c">Cable User</option>
+                                        <option value="h">House Rent User</option>
+                                    </select>
+                                    
+                                </fieldset>
+                                <div class="form-group row">
+                                   
+                                </div>
+                                <button type="button" id="userLoginId" class="btn btn-primary btn-lg btn-block"><i class="ft-unlock"></i> Login</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-footer" id="messageBoxId">
+                        <div class="alert alert-danger" id="errorMessageBoxId">
+
+                        </div>
+                        <div class="alert alert-success" id="successMessageBoxId">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script src="~/Scripts/Application_Scripts/Login.js"></script>

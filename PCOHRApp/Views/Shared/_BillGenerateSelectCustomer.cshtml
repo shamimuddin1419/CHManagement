@@ -1,0 +1,68 @@
+﻿<style>
+    .ml-1, .mx-1{
+        margin-left:0rem !important;
+    }
+</style>
+<div class="billGenerateForm">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group requiredFormGroup">
+                <label for="requestMonthId">Effective Month</label>
+                <select class="form-control select2 border-danger" id="monthId">
+                    <option value="0">Select Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group requiredFormGroup">
+                <label for="requestYearId ">Effective Year</label>
+                <select class="form-control select2 border-danger" id="yearId">
+                    <option value="0">Select Year</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="remarksId">Remarks</label>
+                <input class="form-control" type="text" placeholder="Enter Remarks" id="remarksId">
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row individualCustomerDiv">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="customerId">Customer</label>
+                <select class="form-control select2 border-danger" id="customerId" onchange="changeCustomer()">
+                    <option value="0">Select Customer</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    @*Commented to close individual bill generate*@
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="isBatch" class="font-medium-2 text-bold-600 ml-1">Is Batch</label>&nbsp;
+                <input type="checkbox" id="isBatch" class="switchery switchery-small" checked />
+            </div>
+        </div>
+    </div>
+</div>
+

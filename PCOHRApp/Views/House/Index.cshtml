@@ -1,0 +1,112 @@
+﻿<style>
+    td button {
+        padding: 0px !important;
+        /*cursor:pointer !important;*/
+    }
+
+    .menuBtn {
+        margin-left: 3px;
+    }
+</style>
+<section>
+        <div class="card">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="card-body">
+                <form class="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><i class="ft-user-plus"></i> House/Shop Setup</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                                    <i class="ft-x"></i> Clear
+                                </button>
+                                <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                    <i class="fa fa-check-square-o"></i> Save
+                                </button>
+                                <button type="button" id="btnListId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-list"></i> House List
+                                </button>
+                                <button type="button" id="btnCreateId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-user"></i> Add New House
+                                </button>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div id="houseFormId" class="houseForm col-md-6">
+                                <input type="hidden" id="houseId" />
+                                <div class="col-12">
+                                    <div class="form-group requiredFormGroup">
+                                        <label for="projectId">Project</label>
+                                        <select class="form-control select2 border-danger" id="projectId" onchange="loadHouseList()">
+                                            <option value="0">Select Project</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group requiredFormGroup">
+                                        <label for="houseNameId">House/Shop Name</label>
+                                        <input type="text" id="houseNameId" class="form-control border-danger" placeholder="Provide House Name"/>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group requiredFormGroup">
+                                        <label for="houseTypeId">House/Shop Type</label>
+                                        <select class="form-control select2 border-danger" id="houseTypeId">
+                                            <option value="0">Select House/Shop Type</option>
+                                            <option value="Colony">Building</option>
+                                            <option value="Apartment">Tin Shade</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group requiredFormGroup">
+                                        <label for="monthlyRentId">Monthly Rent</label>
+                                        <input type="text" id="monthlyRentId" value="0" class="form-control border-danger" />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="houseDescriptionId">House/Shop Description</label>
+                                        <textarea class="form-control " placeholder="Enter House Description" id="houseDescriptionId"></textarea>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="houseForm col-md-6">
+                                
+                                <table id="projectBasedHouseTableId" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>House Name</th>
+                                            <th>House Type</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="houseListId">
+                            <table id="houseListTableId" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Edit </th>
+                                        <th>Project Name</th>
+                                        <th>House Name</th>
+                                        <th>House Type</th>
+                                        <th>Monthly Rent</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+</section>
+<script src="~/Scripts/Application_Scripts/House.js"></script>

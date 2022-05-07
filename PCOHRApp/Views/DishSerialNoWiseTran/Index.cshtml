@@ -1,0 +1,93 @@
+﻿<section>
+    <div class="card">
+        @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+        <div class="card-body">
+            <form class="form">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4><i class="ft-user-plus"></i> Serial No wise Transaction(Dish)</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                <i class="fa fa-check-square-o"></i> Search
+                            </button>
+                            
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group requiredFormGroup">
+                                <label for="yearId">Year</label>
+                                <select class="form-control select2 border-danger" id="yearId">
+                                    <option value="0">ALL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Page No</label>
+                                <input class="form-control" id="pageNoId" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-1" style="padding-left: 0px; padding-right: 0px;">
+                            <div class="form-group" style="padding-top:25px;">
+                                <label>ALL</label>
+                                <input type="checkbox" id="chckpageNoId" style="padding-right: 0px;">
+
+                            </div>
+                        </div> 
+                        <div class="col-md-3" style="padding-left: 0px;">
+                            <div class="form-group">
+                                <label>Serial No</label>
+                                <input class="form-control" id="SerialNoId" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-group" style="padding-top:25px;">
+                                <label>ALL</label>
+                                <input type="checkbox" id="chckSerialNo" style="padding-right: 0px;">
+
+                            </div>
+                        </div>
+                                            
+                       
+                </div>
+                    </div>
+                
+            </form>
+           
+        </div>
+        
+    </div>
+    <div class="row">
+
+        <div id="customerBillListId" class="billList table-responsive" style="padding-left:20px;">
+            <table id="customerBillListTableId" class="dataTable table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        
+                        <th>Ref No</th>
+                        <th>CardNo</th>
+                        <th>Name</th>
+                        <th>ConFee</th>
+                        <th>CollDate</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>MonthlyFee</th>
+                        <th>SftFee</th>
+                        <th>NetAmt</th>
+                        <th>RcvAmt</th>
+                        <th>ReConFee</th>
+                        <th>collectedBy</th>
+                        <th>receivedBy</th>
+                        <th>createdBy</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+    </div>
+</section>
+<script src="~/Scripts/Application_Scripts/DishSerialNoWiseTrans.js"></script>

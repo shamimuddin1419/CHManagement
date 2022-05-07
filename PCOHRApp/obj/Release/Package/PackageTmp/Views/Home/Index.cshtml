@@ -1,0 +1,55 @@
+﻿<style>
+    .bg-gradient-x-danger
+    {
+        background-image : linear-gradient(to right, #d2102a 0%, #ffa8b4 100%) !important;
+    }
+</style>
+@if (Session.Count == 0)
+{
+    <div id="loginId">
+        @Html.Partial("~/Views/Shared/_Login.cshtml")
+    </div>
+}
+else
+{
+    <div class="content-wrapper">
+
+        <div class="row">
+            @{PCOHRApp.Models.UserVM user = (PCOHRApp.Models.UserVM)Session["user"];}
+            @{List<PCOHRApp.Models.UserPageVM> menuData = (List<PCOHRApp.Models.UserPageVM>)Session["menuData"];}
+            @if (@user.userType == "Cable")
+            {
+                foreach (var item in menuData.Where(x => x.pageType == "Cable"))
+                {
+                    <div class="col-md-3 col-12">
+                        <a class="card" href="/@item.pageUrl">
+                            <div class="card-content">
+                                <div class="media align-items-stretch">
+                                    <div class="p-2 bg-gradient-x-danger white media-body">
+                                        <center><h5>@item.pageName</h5></center>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <a class="card" href="~/Account/Logout">
+                    <div class="card-content">
+                        <div class="media align-items-stretch">
+                            <div class="p-2 bg-gradient-x-danger white media-body">
+                                <center><h5>Application Exit</h5></center>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+
+

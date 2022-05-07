@@ -1,0 +1,129 @@
+﻿<style>
+    td button {
+        padding: 0px !important;
+        /*cursor:pointer !important;*/
+    }
+
+    .menuBtn {
+        margin-left: 3px;
+    }
+</style>
+<section>
+
+        <div class="card">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="card-body">
+                <form class="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><i class="ft-user-plus"></i> CareTaker Setup</h4>
+                            </div>
+                            <div class="col-md-6">
+
+                                <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                                    <i class="ft-x"></i> Clear
+                                </button>
+                                <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                    <i class="fa fa-check-square-o"></i> Save
+                                </button>
+                                <button type="button" id="btnListId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-list"></i> CareTaker List
+                                </button>
+                                <button type="button" id="btnCreateId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-user"></i> Add New CareTaker
+                                </button>
+
+                            </div>
+                        </div>
+                        <hr />
+                        <div id="careTakerFormId">
+                            <input type="hidden" id="careTakerId" />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="careTakerNameId">CareTaker Name</label>
+                                        <input class="form-control border-danger" type="text" placeholder="Enter CareTaker Name" id="careTakerNameId">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phoneNoId">Mobile</label>
+                                        <input class="form-control border-danger" type="tel" placeholder="Enter Mobile Number" id="phoneNoId">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="emailId">Email</label>
+                                        <input class="form-control" type="email" placeholder="Enter Email" id="emailId">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="companyNameId">NID</label>
+                                        <input class="form-control" type="text" placeholder="Enter NID" id="nid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="presentAddressId">Present Address</label>
+                                        <textarea class="form-control" placeholder="Enter Present Address" id="presentAddressId"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="permanentAddressId">Permanent Address</label>
+                                        <textarea class="form-control border-danger" placeholder="Enter Permanent Address" id="permanentAddressId"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="joiningDateId">Joining Date</label>
+                                        <div class='input-group date ' id='joiningDateId'>
+                                            <input type='text' class="form-control" />
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <span class="fa fa-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="salaryId">Salary</label>
+                                        <input class="form-control" type="tel" placeholder="Enter Salary" id="salaryId">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="careTakerListId">
+                            <table id="careTakerListTableId" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Edit </th>
+                                        <th>CareTaker Name</th>
+                                        @*<th>Permanent Address</th>*@
+                                        <th>Phone Number</th>
+                                        <th>Email</th>
+                                        <th>NID</th>
+                                        <th>Joining Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+</section>
+<script src="~/Scripts/Application_Scripts/CareTaker.js"></script>

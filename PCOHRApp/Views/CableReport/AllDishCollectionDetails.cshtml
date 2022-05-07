@@ -1,0 +1,107 @@
+﻿<section>
+
+        <div class="card">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="card-body">
+                <form class="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><i class="ft-user-plus"></i> Collection Details(Dish)</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                    <i class="fa fa-check-square-o"></i> Generate Report
+                                </button>
+                                <button type="button" id="btnExcelId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-file-excel-o"></i> Generate Excel
+                                </button>
+                                <button type="button" id="btnWordId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-file-word-o"></i> Generate Word
+                                </button>
+
+                            </div>
+                            
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>From Date</label>
+                                    <div class='input-group date ' id='fromDateId'>
+                                        <input type='text' class="form-control border-danger" />
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <span class="fa fa-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>To Date</label>
+                                    <div class='input-group date requiredFormGroup' id='toDateId'>
+                                        <input type='text' class="form-control border-danger" />
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <span class="fa fa-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="ctypeId">Collection Type</label>
+                                    <select class="form-control select2" id="ctypeId">
+                                        <option value="0">All</option>
+                                        <option value="Connection Fee">Connection Fee</option>
+                                        <option value="ReConnection Fee">ReConnection Fee</option>
+                                        <option value="Monthly Fee">Monthly Fee</option>
+                                        <option value="Shifting Charge">Shifting Charge</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="customerId">Customer</label>
+                                    <select class="form-control select2" id="customerId">
+                                        <option value="0">Select Customer</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Collected By</label>
+                                    <select class="form-control select2" id="collectedById">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Received By</label>
+                                    <select class="form-control select2" id="receivedById">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="reportId">
+
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+</section>
+<script src="~/Scripts/Application_Scripts/AllDishCollectionDetails.js"></script>
+
+

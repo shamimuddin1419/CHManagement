@@ -1,0 +1,71 @@
+﻿<section>
+
+        <div class="card">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="card-body">
+                <form class="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><i class="ft-user-plus"></i> Month Wise Generated Bill(Dish)</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                    <i class="fa fa-check-square-o"></i> Generate Report
+                                </button>
+                                <button type="button" id="btnExcelId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-file-excel-o"></i> Generate Excel
+                                </button>
+                                <button type="button" id="btnWordId" class="btn btn-info pull-right menuBtn">
+                                    <i class="fa fa-file-word-o"></i> Generate Word
+                                </button>
+
+                            </div>
+
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group requiredFormGroup">
+                                    <label for="monthId">Effective Month</label>
+                                    <select class="form-control select2 border-danger" id="monthId">
+                                        <option value="0">Select Month</option>
+                                        <option value="January">January</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group requiredFormGroup">
+                                    <label for="yearId ">Effective Year</label>
+                                    <select class="form-control select2 border-danger" id="yearId">
+                                        <option value="0">Select Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                        <div class="row" id="reportId">
+
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+</section>
+<script src="~/Scripts/Application_Scripts/RptMonthWiseDishBill.js"></script>
+
+

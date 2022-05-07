@@ -1,0 +1,94 @@
+﻿<section>
+    <div class="card">
+        <div class="card-body">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="row">
+                <div class="col-md-6">
+                    <h4><i class="ft-zoom-in"></i>Dish Monthly Bill Delete</h4>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                        <i class="ft-x"></i> Clear
+                    </button>
+                    <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                        <i class="fa fa-check-square-o"></i>Delete Monthly Bill
+                    </button>
+                </div>
+            </div>
+            <div class="row customerBillForm">
+                <div class="col-md-5">
+                    <div class="form-group requiredFormGroup">
+                        <label for="customerId">Customer</label>
+                        <select class="form-control select2 border-danger" id="customerId" onchange="changeCustomer()">
+                            <option value="0">Select Customer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="lblPassword">Password</label>
+                        <input class="form-control" id="txtPassword" type="password" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group" style="color:red;font-weight:bold">
+                        <br />
+                        Total Due : <label style="color:red !important; font-weight:bold !important;" id="totalDueId"></label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group" style="color:red;font-weight:bold">
+                        <br />
+                       Total Del Amt : <label style="color:red !important; font-weight:bold !important;" id="totalDeleteAmtId"></label>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row customerBillForm">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="connDateId">Conn Date</label>
+                        <input class="form-control" id="connectionMonthId" type="text" readonly>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="hostNameId">Host</label>
+                        <input class="form-control" id="hostNameId" type="text" readonly>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="hostPhoneId">Host Phone</label>
+                        <input class="form-control" id="hostPhoneId" type="text" readonly>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Zone</label>
+                        <input class="form-control" id="zoneNameId" type="text" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row customerBillForm">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="connDateId">Monthly Bill</label>
+                        <input class="form-control" id="txtMonthlyBIll" type="text" readonly>
+                    </div>
+                </div>
+                </div>
+                <div class="row customerBillForm">
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body border" id="monthlyDueListPanel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+            </div>
+    </div>
+</section>
+<script src="~/Scripts/Application_Scripts/DishMonthlyBillDelete.js"></script>
