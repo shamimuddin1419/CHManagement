@@ -172,5 +172,111 @@ namespace PCOHRApp.DA
             }
             return _obj;
         }
+        public string InsertOrUpdateCustomerCardInfo(CustomerCardInfoVM _obj)
+        {
+            string result = "";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("isp_DishCustomerCardInfo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@insertFlag", _obj.insertFlag);
+                cmd.Parameters.AddWithValue("@customerId", _obj.customerId);
+                cmd.Parameters.AddWithValue("@customerLocality", _obj.customerLocality);
+                cmd.Parameters.AddWithValue("@customerName", _obj.customerName);
+                cmd.Parameters.AddWithValue("@customerPhone", _obj.customerPhone);
+                cmd.Parameters.AddWithValue("@customerAddress", _obj.customerAddress);
+                cmd.Parameters.AddWithValue("@ownerName", _obj.ownerName);
+                cmd.Parameters.AddWithValue("@ownerPhone", _obj.ownerPhone);
+                cmd.Parameters.AddWithValue("@createdBy", _obj.createdBy);
+
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                con.Close();
+            }
+            return result;
+        }
+        public List<CustomerCardInfoVM> GetCustomerCardInfoList()
+        {
+            DataTable dt = new DataTable();
+            List<CustomerCardInfoVM> userList = new List<CustomerCardInfoVM>();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("gsp_getDishCustomerCardInfo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                var da = new SqlDataAdapter(cmd);
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                con.Close();
+            }
+            userList = (from DataRow rdr in dt.Rows
+                        select new CustomerCardInfoVM()
+                        {
+                            customerId = Convert.ToInt32( rdr["customerId"]),
+                            customerName = rdr["customerName"].ToString(),
+                            customerSerial = rdr["customerSerial"].ToString(),
+                            customerPhone = rdr["customerPhone"].ToString(),
+                            customerAddress = rdr["customerAddress"].ToString(),
+                            customerLocality = rdr["customerLocality"].ToString(),
+                            ownerName = rdr["ownerName"].ToString(),
+                            ownerPhone = rdr["ownerPhone"].ToString()
+
+                        }).ToList();
+            return userList;
+        }
+        public List<CustomerVM> GetCustomerCardInfoListForDropdown()
+        {
+            DataTable dt = new DataTable();
+            List<CustomerVM> userList = new List<CustomerVM>();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("gsp_getDishCustomerCardInfoForDropdown", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                var da = new SqlDataAdapter(cmd);
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                con.Close();
+            }
+            userList = (from DataRow rdr in dt.Rows
+                        select new CustomerVM()
+                        {
+                            id = Convert.ToInt32(rdr["id"]),
+                            customerId = rdr["customerId"].ToString(),
+                            customerSerialId = Convert.ToInt32(rdr["customerSerialId"]),
+                            customerName = rdr["customerName"].ToString(),
+                            customerSerial = rdr["customerSerial"].ToString(),
+                            customerPhone = rdr["customerPhone"].ToString(),
+                            customerAddress = rdr["customerAddress"].ToString(),
+                            isActive = Convert.ToBoolean(rdr["isActive"])
+                        }).ToList();
+            return userList;
+        }
+        public CustomerCardInfoVM GetCustomerCardInfoById(int id)
+        {
+            CustomerCardInfoVM _obj = new CustomerCardInfoVM();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("gsp_getDishCustomerCardInfoById", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    _obj.customerId = Convert.ToInt32(rdr["customerId"]);
+                    _obj.customerName = rdr["customerName"].ToString();
+                    _obj.customerPhone = rdr["customerPhone"].ToString();
+                    _obj.customerAddress = rdr["customerAddress"].ToString();
+                    _obj.customerLocality = rdr["customerLocality"].ToString();
+                    _obj.ownerName = rdr["ownerName"].ToString();
+                    _obj.ownerPhone = rdr["ownerPhone"].ToString();
+                    
+                }
+                con.Close();
+            }
+            return _obj;
+        }
     }
 }

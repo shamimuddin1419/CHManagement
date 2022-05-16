@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -184,6 +186,7 @@
     <Compile Include="Models\CustomerVM.cs" />
     <Compile Include="Models\DashBoardDataVM.cs" />
     <Compile Include="Models\DesignationVM.cs" />
+    <Compile Include="Models\CustomerCardInfoVM.cs" />
     <Compile Include="Models\DropdownVM.cs" />
     <Compile Include="Models\HostVM.cs" />
     <Compile Include="Models\HouseVM.cs" />
@@ -2572,10 +2575,21 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Pub_files\gsp_getInternetCustomerCardInfo.sql" />
+    <Content Include="Pub_files\gsp_getDishCustomerCardInfo.sql" />
+    <Content Include="Pub_files\gsp_getInternetCustomerCardInfoById.sql" />
+    <Content Include="Pub_files\gsp_getDishCustomerCardInfoById.sql" />
+    <Content Include="Pub_files\gsp_getInternetCustomerCardInfoForDropdown.sql" />
+    <Content Include="Pub_files\gsp_getDishCustomerCardInfoForDropdown.sql" />
+    <Content Include="Pub_files\isp_InternetCustomerCardInfo.sql" />
+    <Content Include="Pub_files\isp_DishCustomerCardInfo.sql" />
+    <Content Include="Pub_files\table.sql" />
     <Content Include="Scripts\Application_Scripts\DataBaseBackUp.js" />
     <Content Include="Scripts\Application_Scripts\DishCollectionPageGroup.js" />
     <Content Include="Scripts\Application_Scripts\DishCollectionPageBetween.js" />
     <Content Include="Scripts\Application_Scripts\DishBillCard.js" />
+    <Content Include="Scripts\Application_Scripts\InternetCustomerCardInfo.js" />
+    <Content Include="Scripts\Application_Scripts\DishCustomerCardInfo.js" />
     <Content Include="Scripts\Application_Scripts\Renter.js" />
     <Content Include="Scripts\Application_Scripts\InternetCollectionPageGroup.js" />
     <Content Include="Scripts\Application_Scripts\InternetCollectionPageBetween.js" />
@@ -3116,6 +3130,8 @@
     <Content Include="Views\CableReport\DishCollPageGroup.cshtml" />
     <Content Include="Views\Renter\Index.cshtml" />
     <Content Include="Views\CableReport\DishBillCard.cshtml" />
+    <Content Include="Views\DishCustomer\CustomerCardInfo.cshtml" />
+    <Content Include="Views\InternetCustomer\CustomerCardInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
