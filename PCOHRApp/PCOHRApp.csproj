@@ -2583,6 +2583,7 @@
     <Content Include="Pub_files\gsp_getDishCustomerCardInfoForDropdown.sql" />
     <Content Include="Pub_files\isp_InternetCustomerCardInfo.sql" />
     <Content Include="Pub_files\isp_DishCustomerCardInfo.sql" />
+    <Content Include="Pub_files\pageInsert.sql" />
     <Content Include="Pub_files\table.sql" />
     <Content Include="Scripts\Application_Scripts\DataBaseBackUp.js" />
     <Content Include="Scripts\Application_Scripts\DishCollectionPageGroup.js" />
