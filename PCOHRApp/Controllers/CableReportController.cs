@@ -113,6 +113,12 @@ namespace PCOHRApp.Controllers
         {
             return View();
         }
+        [CustomSessionFilterAttribute]
+        public ActionResult IntBillCard()
+        {
+            return View();
+        }
+         [CustomSessionFilterAttribute]
         public ActionResult DishBillCard()
         {
             return View();
@@ -439,10 +445,24 @@ namespace PCOHRApp.Controllers
                 //reportParameters.Add(new ReportParameter("cid", cid + ""));
 
                 //lr.SetParameters(reportParameters);
-                var dataList = _da.GetDishPaymentHistory(cid ?? 0) ?? new List<PCOHRApp.Models.BillCollectionVM>();
+                var dataList = _da.GetDishCustomerCardPrintInfo(cid ?? 0) ?? new List<PCOHRApp.Models.CardBillPrintVM>();
 
                 lr.DataSources.Clear();
-                ReportDataSource rds = new ReportDataSource("HostDataSet", dataList);
+                ReportDataSource rds = new ReportDataSource("DataSet1", dataList);
+                lr.DataSources.Add(rds);
+            }
+            else if (reportType == "InternethBillCard")
+            {
+                string path = System.IO.Path.Combine(Server.MapPath("~/Reports"), "BillCard.rdlc");
+                lr.ReportPath = path;
+                //ReportParameterCollection reportParameters = new ReportParameterCollection();
+                //reportParameters.Add(new ReportParameter("cid", cid + ""));
+
+                //lr.SetParameters(reportParameters);
+                var dataList = _da.GetInternetCustomerCardPrintInfo(cid ?? 0) ?? new List<PCOHRApp.Models.CardBillPrintVM>();
+
+                lr.DataSources.Clear();
+                ReportDataSource rds = new ReportDataSource("DataSet1", dataList);
                 lr.DataSources.Add(rds);
             }
 

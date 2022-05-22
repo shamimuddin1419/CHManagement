@@ -179,6 +179,7 @@
     <Compile Include="Models\BillCollectionVM.cs" />
     <Compile Include="Models\BillDelete.cs" />
     <Compile Include="Models\BillGenerateVM.cs" />
+    <Compile Include="Models\CardBillPrintVM.cs" />
     <Compile Include="Models\CareTakerVM.cs" />
     <Compile Include="Models\CustomerRequestTypeVM.cs" />
     <Compile Include="Models\CustomerVM.cs" />
@@ -2573,6 +2574,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Application_Scripts\DataBaseBackUp.js" />
+    <Content Include="Scripts\Application_Scripts\InternetBillCard.js" />
     <Content Include="Scripts\Application_Scripts\DishCollectionPageGroup.js" />
     <Content Include="Scripts\Application_Scripts\DishCollectionPageBetween.js" />
     <Content Include="Scripts\Application_Scripts\DishBillCard.js" />
@@ -3116,6 +3118,7 @@
     <Content Include="Views\CableReport\DishCollPageGroup.cshtml" />
     <Content Include="Views\Renter\Index.cshtml" />
     <Content Include="Views\CableReport\DishBillCard.cshtml" />
+    <Content Include="Views\CableReport\IntBillCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

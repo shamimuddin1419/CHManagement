@@ -656,5 +656,64 @@ namespace PCOHRApp.DA
                         }).ToList();
             return billList;
         }
+
+        public List<CardBillPrintVM> GetDishCustomerCardPrintInfo(int cid)
+        {
+            DataTable dt = new DataTable();
+            List<CardBillPrintVM> billList = new List<CardBillPrintVM>();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("isp_DishCustomerCardPrint", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@customerId", cid);
+                con.Open();
+                var da = new SqlDataAdapter(cmd);
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                con.Close();
+            }
+            billList = (from DataRow rdr in dt.Rows
+                        select new CardBillPrintVM()
+                        {                            
+                            customerLocality = rdr["customerLocality"].ToString(),
+                            customerName = rdr["customerName"].ToString(),
+                            customerPhone = rdr["customerPhone"].ToString(),
+                            customerAddress = rdr["customerAddress"].ToString(),
+                            ownerName = rdr["ownerName"].ToString(),
+                            ownerPhone = rdr["ownerPhone"].ToString(),
+                            customerSerial = rdr["customerSerial"].ToString()                          
+
+                        }).ToList();
+            return billList;
+        }
+        public List<CardBillPrintVM> GetInternetCustomerCardPrintInfo(int cid)
+        {
+            DataTable dt = new DataTable();
+            List<CardBillPrintVM> billList = new List<CardBillPrintVM>();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("isp_InternetCustomerCardPrint", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@customerId", cid);
+                con.Open();
+                var da = new SqlDataAdapter(cmd);
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                con.Close();
+            }
+            billList = (from DataRow rdr in dt.Rows
+                        select new CardBillPrintVM()
+                        {
+                            customerLocality = rdr["customerLocality"].ToString(),
+                            customerName = rdr["customerName"].ToString(),
+                            customerPhone = rdr["customerPhone"].ToString(),
+                            customerAddress = rdr["customerAddress"].ToString(),
+                            ownerName = rdr["ownerName"].ToString(),
+                            ownerPhone = rdr["ownerPhone"].ToString(),
+                            customerSerial = rdr["customerSerial"].ToString()
+
+                        }).ToList();
+            return billList;
+        }
     }
 }
