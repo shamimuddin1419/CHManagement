@@ -17,7 +17,7 @@ namespace PCOHRApp.Controllers
         {
             _dishCustomerDA = new DishCustomerDA();
         }
-        [CustomSessionFilterAttribute]
+        [CustomSessionFilter]
         // GET: DishCustomer
         public ActionResult Index()
         {
@@ -202,6 +202,142 @@ namespace PCOHRApp.Controllers
                 return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
+        [CustomSessionFilter]
+        public ActionResult CustomerCardInfo()
+        {
+            return View();
+        }
+        [CustomSessionFilterAttributeForAction]
+        public JsonResult InsertOrUpdateCustomerCardInfo(CustomerCardInfoVM _obj)
+        {
+            try
+            {
+                _obj.createdBy = Convert.ToInt32(Session["userId"]);
+                string result = _dishCustomerDA.InsertOrUpdateCustomerCardInfo(_obj);
+                return Json(new { success = true, message = "Data Saved" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Violation of PRIMARY KEY"))
+                {
+                    return Json(new { success = false, message = "This customer card already exists!!" }, JsonRequestBehavior.AllowGet);
+                }
+                return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpPost]
+        public JsonResult GetCustomerCardInfoList()
+        {
+            try
+            {
+                List<CustomerCardInfoVM> _objList = _dishCustomerDA.GetCustomerCardInfoList().ToList();
+                int totalRows = _objList.Count;
+                int start = Convert.ToInt32(Request["start"]);
+                int length = Convert.ToInt32(Request["length"]);
+                string searchValue = Request["search[value]"];
+                string sortColumnName = Request["columns[" + Request["order[0][column]"] + "][name]"];
+                string sortDirection = Request["order[0][dir]"];
 
+                if (!string.IsNullOrEmpty(searchValue))
+                {
+                    _objList = _objList.Where(x => x.customerSerial.ToLower().Contains(searchValue.ToLower())
+                        || x.customerName.ToLower().Contains(searchValue.ToLower())
+                        || x.customerPhone.ToLower().Contains(searchValue.ToLower())
+                        || x.ownerName.ToLower().Contains(searchValue.ToLower())
+                        || x.ownerPhone.ToLower().Contains(searchValue.ToLower())
+                        || x.customerAddress.ToLower().Contains(searchValue.ToLower())).ToList();
+                }
+                //_objList = _objList.OrderBy(sortColumnName + " " + sortDirection).ToList<CustomerVM>();
+                _objList = _objList.Skip(start).Take(length).ToList();
+
+                return Json(new { success = true, data = _objList, draw = Request["draw"], recordsTotal = totalRows, recordsFiltered = totalRows }, JsonRequestBehavior.AllowGet);
+                //return Json(new { success = true, data = _objList }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        public JsonResult GetCustomerCardInfoListForDropdown(string search, int page, int selectedId, string searchBy = "")
+        {
+            try
+            {
+                List<DropdownVM> _objListAll = new List<DropdownVM>();
+                if (searchBy.ToLower() == "card")
+                {
+                    _objListAll = _dishCustomerDA.GetCustomerCardInfoListForDropdown().Where(x =>  ((search == null || search == "") || x.customerId.ToLower().StartsWith(search.ToLower())
+                    || x.customerSerial.ToLower().StartsWith(search.ToLower()))).Select(x => new DropdownVM
+                    {
+                        id = x.id,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone,
+                    }).ToList();
+                }
+                else if (searchBy.ToLower() == "name")
+                {
+                    _objListAll = _dishCustomerDA.GetCustomerCardInfoListForDropdown().Where(x =>  ((search == null || search == "")
+                    || x.customerName.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
+                    {
+                        id = x.id,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone,
+                    }).ToList();
+                }
+                else if (searchBy.ToLower() == "mobile")
+                {
+                    _objListAll = _dishCustomerDA.GetCustomerCardInfoListForDropdown().Where(x => ((search == null || search == "")
+                    || x.customerPhone.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
+                    {
+                        id = x.id,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone,
+                    }).ToList();
+                }
+                else
+                {
+                    _objListAll = _dishCustomerDA.GetCustomerCardInfoListForDropdown().Where(x =>  ((search == null || search == "") || x.customerId.ToLower().Contains(search.ToLower())
+                    || x.customerSerial.ToLower().Contains(search.ToLower())
+                    || x.customerName.ToLower().Contains(search.ToLower())
+                    || x.customerPhone.ToLower().Contains(search.ToLower()))).OrderByDescending(x => x.hostId).Select(x => new DropdownVM
+                    {
+                        id = x.id,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone,
+                    }).ToList();
+                }
+
+                if (_objListAll.Count > page * 10)
+                {
+                    var _objList = _objListAll.Skip((page - 1) * 10).Take(page * 10).ToList();
+                    if (selectedId != 0)
+                    {
+                        if (!_objList.Where(x => x.id == selectedId).Any())
+                        {
+                            var selectedItem = _objListAll.Where(x => x.id == selectedId).FirstOrDefault();
+                            _objList.Add(selectedItem);
+                        }
+                    }
+                    return Json(new { success = true, results = _objList, pagination = new { more = true } }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+
+                    return Json(new { success = true, results = _objListAll, pagination = new { more = false } }, JsonRequestBehavior.AllowGet);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        public JsonResult GetCustomerCardInfoById(int id)
+        {
+            try
+            {
+                var _obj = _dishCustomerDA.GetCustomerCardInfoById(id);
+                return Json(new { success = true, data = _obj }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }
