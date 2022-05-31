@@ -1,5 +1,6 @@
 ﻿using PCOHRApp.DA;
 using PCOHRApp.Models;
+using PCOHRApp.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,7 @@ namespace PCOHRApp.Controllers
                 return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
+        [CustomSessionFilterAttributeForAction]
         public JsonResult InsertOrUpdateHouse(HouseVM _obj)
         {
             try

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCOHRApp.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace PCOHRApp.Controllers
 {
     public class HouseCustomerController : Controller
     {
+        [CustomSessionFilter]
         // GET: HouseCustomer
         public ActionResult Index()
         {

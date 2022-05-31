@@ -17,7 +17,7 @@ namespace PCOHRApp.Controllers
             _da = new ProjectDA();
         }
         // GET: Project
-       // [CustomSessionFilterAttribute]
+        [CustomSessionFilter]
         public ActionResult Index()
         {
             return View();

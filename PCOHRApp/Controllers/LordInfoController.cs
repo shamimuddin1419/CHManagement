@@ -17,12 +17,12 @@ namespace PCOHRApp.Controllers
             _lordInfoDA = new LordInfoDA();
         }
         // GET: LordInfo
-      //  [CustomSessionFilterAttribute]
+        [CustomSessionFilter]
         public ActionResult Index()
         {
             return View();
         }
-       // [CustomSessionFilterAttributeForAction]
+        [CustomSessionFilterAttributeForAction]
         public JsonResult InsertOrUpdateLordInfo(LordInfoVM _obj)
         {
             try
