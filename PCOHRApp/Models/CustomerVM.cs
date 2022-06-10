@@ -43,5 +43,7 @@ namespace PCOHRApp.Models
         public string EntryDateString { set; get; }
         public DateTime? EntryDate { set; get; }
         public string onuMCId { set; get; }
+        public string nid { get; set; }
+        public string disconnectedDateString { get; set; }
     }
 }

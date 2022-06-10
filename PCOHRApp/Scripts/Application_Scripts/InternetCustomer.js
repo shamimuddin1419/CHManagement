@@ -103,6 +103,7 @@ $('#btnCreateId').click(function () {
     $('#monthBillId').val('0');
     $('#monthBillId').prop('readonly', false);
     $('#othersAmountId').val('0');
+    $('#nidId').val('');
     $("#EntryDateDateId").data("DateTimePicker").date(null);
     $('#connMonthId').val('0');
     $('#connYearId').val('0');
@@ -138,7 +139,10 @@ $('#btnSaveId').click(function () {
         toastr.error('Provide Connection Month!!');
     }
     else if ($('#connYearId').val() == '0') {
-        toastr.error('Provide Connection Month!!');
+        toastr.error('Provide Connection Year!!');
+    }
+    else if ($('#nidId').val() == '') {
+        toastr.error('Provide NID!!');
     }
 
     else {
@@ -162,6 +166,7 @@ $('#btnSaveId').click(function () {
             connMonth: $('#connMonthId').val(),
             connYear: $('#connYearId').val(),
             isActive: true,
+            nid: $('#nidId').val()
         }
         if ($('#btnSaveId').text().indexOf('Save') >= 0) {
             inputData.insertFlag = 1;
@@ -173,18 +178,25 @@ $('#btnSaveId').click(function () {
         $.post('/InternetCustomer/InsertOrUpdateCustomer', inputData, function (data) {
             if (data.success == true) {
                 if ($('#btnSaveId').text().indexOf('Save') >= 0) {
-                    toastr.success("Data Saved");
+                    //toastr.success("Data Saved");
+                    clearUI();
+                    $('#successMessageBoxId').text('Data Saved');
                 }
                 else {
-                    toastr.success("Data Updated");
-                }
-                if ($('#btnSaveId').text().indexOf('Update') >= 0) {
+                    //toastr.success("Data Updated");
+
                     $('#btnCreateId').click();
-                    $('#messageBoxId').show();
-                    $('#successMessageBoxId').show();
+                    $('#successMessageBoxId').text('Data Updated');
                 }
-                else
-                    clearUI();
+                //if ($('#btnSaveId').text().indexOf('Update') >= 0) {
+                //    $('#btnCreateId').click();
+                //    $('#messageBoxId').show();
+                //    $('#successMessageBoxId').show();
+                //}
+                $('#messageBoxId').show();
+                $('#successMessageBoxId').show()
+                //else
+                //    clearUI();
                 loadCustomerList();
 
             }
@@ -246,6 +258,7 @@ function clearUI() {
     $("#EntryDateDateId").data("DateTimePicker").date(null);
     $('#connMonthId').val('0');
     $('#connYearId').val('0');
+    $('#nidId').val('');
     $('.select2').trigger('change');
     $('#isActive').prop('checked', true);
     $('.switchery').trigger('click');
@@ -260,6 +273,8 @@ function loadCreateUI() {
     $('#btnSaveId').show();
     $('#btnClearId').show();
     $('#btnListId').show();
+    $('#connYearId').select2("enable");
+    $('#connMonthId').select2("enable");
     var customerSerials = []
     $.get('/Dropdown/GetCustomerSerialList', function (data) {
         customerSerials = data.data;
@@ -401,6 +416,7 @@ function EditCustomer(id) {
             $('#hostId').val(data.data.hostId);
             $('#zoneId').val(data.data.zoneId);
             $('#assignedUserId').val(data.data.assignedUserId);
+            $('#nidId').val(data.data.nid);
             $('#connFeeId').val(data.data.connFee);
             $('#connFeeId').prop('readonly', true);
             $('#monthBillId').val(data.data.monthBill);

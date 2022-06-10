@@ -41,6 +41,7 @@ namespace PCOHRApp.DA
                 cmd.Parameters.AddWithValue("@createdBy", _obj.createdBy);
                 cmd.Parameters.AddWithValue("@EntryDate", _obj.EntryDate);
                 cmd.Parameters.AddWithValue("@OnuMC", _obj.onuMCId);
+                cmd.Parameters.AddWithValue("@nid", _obj.nid);
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
@@ -96,6 +97,7 @@ namespace PCOHRApp.DA
                             connYearName = rdr["connYearName"].ToString(),
                             isActive = Convert.ToBoolean(rdr["isActive"]),
                             isActiveString = rdr["isActiveString"].ToString(),
+                            nid = rdr["nid"] == DBNull.Value ? null : rdr["nid"].ToString()
                         }).ToList();
             return userList;
         }
@@ -138,6 +140,9 @@ namespace PCOHRApp.DA
                    _obj.isActive = Convert.ToBoolean(rdr["isActive"]);
                    _obj.EntryDateString = rdr["EntryDateString"].ToString();
                    _obj.onuMCId = rdr["OnuMC"].ToString();
+                   _obj.nid = rdr["nid"].ToString();
+                   _obj.isDisconnectedString = rdr["isDisconnectedString"].ToString();
+                   _obj.disconnectedDateString = rdr["disconnectedDateString"].ToString();
                 }
                 con.Close();
             }
@@ -175,7 +180,7 @@ namespace PCOHRApp.DA
                     _obj.connMonth = rdr["connMonth"].ToString();
                     _obj.connYear = Convert.ToInt32(rdr["connYear"]);
                     _obj.isActive = Convert.ToBoolean(rdr["isActive"]);
-
+                    _obj.nid = rdr["nid"].ToString();
                 }
                 con.Close();
             }

@@ -299,6 +299,7 @@ function changeCustomer() {
             $('#lblCusAddBillForTop').text(data.data.customerAddress);
             $('#lblMonthlyBillForTop').text(data.data.monthBill);
             $('#lblEntryDateForTop').text(data.data.EntryDateString);
+            $('#lblDisconnectionDateId').text(data.data.disconnectedDateString);
 
 
             $('#connectionMonthId').val(data.data.connMonth == '0' ? '' : data.data.connMonth + ',' + (data.data.connYearName == 'null' ? '' : data.data.connYearName));
