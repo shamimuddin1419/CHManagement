@@ -13,15 +13,17 @@ $('#btnWordId').click(function () {
     GenerateRDLC('Word');
 });
 
+$("input[name='inlineRadioOptions']").click(function () {
+    $('#customerId').val('0');
+    loadInitialization();
+});
 function loadInitialization() {
     $('#messageBoxId').hide();
     $('#errorMessageBoxId').hide();
     $('#successMessageBoxId').hide();
-
-    
     $('#customerId').select2({
         ajax: {
-            url: '/DishCustomer/GetCustomerListForDropdown',
+            url: '/DishCustomer/GetCustomerListForDropdown?searchBy=' + $("input[name='inlineRadioOptions']:checked").val(),
             data: function (params) {
                 var query = {
                     search: params.term,
@@ -32,7 +34,7 @@ function loadInitialization() {
             }
         }
     });
-    
+
 }
 function showErrorMessage(errorText) {
     $('#messageBoxId').show();

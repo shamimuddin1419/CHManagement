@@ -47,6 +47,9 @@ function changeCustomer() {
             $('#customerNameId').val(data.data.customerName);
             $('#phoneNumberId').val(data.data.customerPhone);
             $('#addressId').val(data.data.customerAddress);
+            $('#customerLocalityId').val(data.data.zoneName);
+            $('#ownerNameId').val(data.data.hostName);
+            $('#ownerPhoneNumberId').val(data.data.hostPhone);
             $('#insertFlagId').val('1');
             $('#customerInfoId').val(data.data.id);
         });

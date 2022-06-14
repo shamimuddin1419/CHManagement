@@ -49,6 +49,7 @@ namespace PCOHRApp.Models
         public List<int> billDetailsIds { get; set; }
         public string  createdByString { get; set; }
         public string yearName { set; get; }
+        public string customerAddress { set; get; }
        
 
     }
