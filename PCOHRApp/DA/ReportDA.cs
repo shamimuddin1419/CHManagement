@@ -332,6 +332,7 @@ namespace PCOHRApp.DA
                             othersAmount = Convert.ToDecimal(rdr["othersAmount"]),
                             connFee = Convert.ToDecimal(rdr["connFee"]),
                             totalDue = Convert.ToDecimal(rdr["totalDue"]),
+                            customerAddress = rdr["customerAddress"].ToString(),
                         }).ToList();
             return dueList;
         }
@@ -371,6 +372,7 @@ namespace PCOHRApp.DA
                            othersAmount = Convert.ToDecimal(rdr["othersAmount"]),
                            connFee = Convert.ToDecimal(rdr["connFee"]),
                            totalDue = Convert.ToDecimal(rdr["totalDue"]),
+                           customerAddress = rdr["customerAddress"].ToString(),
                        }).ToList();
             return dueList;
         }
