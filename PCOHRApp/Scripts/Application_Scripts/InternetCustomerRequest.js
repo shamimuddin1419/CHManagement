@@ -109,6 +109,7 @@ function onReqTypeChanged() {
         $('#requestChargeFormGroup').hide();
         $('.shiftingRow').hide();
         $('.disconnectRow').hide();
+        $('.reconnectRow').hide();
         
     }
     else if (text == 'Shifting') {
@@ -117,6 +118,7 @@ function onReqTypeChanged() {
         $('.disconnectRow').hide();
         $('#updatedMonthlyBillFormGroup').hide();
         $('#requestChargeFormGroup').show();
+        $('.reconnectRow').hide();
        
     }
     else if(text == 'Discontinue'){
@@ -125,7 +127,17 @@ function onReqTypeChanged() {
         $('.disconnectRow').show();
         $('#updatedMonthlyBillFormGroup').hide();
         $('#requestChargeFormGroup').hide();
+        $('.reconnectRow').hide();
         
+    }
+    else if (text == 'Reconnect') {
+        $('#requiredNetDiv').hide();
+        $('.shiftingRow').hide();
+        $('.disconnectRow').hide();
+        $('#updatedMonthlyBillFormGroup').hide();
+        $('#requestChargeFormGroup').hide();
+        $('.reconnectRow').show();
+
     }
     else {
         $('#requiredNetDiv').hide();
@@ -133,6 +145,7 @@ function onReqTypeChanged() {
         $('.disconnectRow').hide();
         $('#updatedMonthlyBillFormGroup').hide();
         $('#requestChargeFormGroup').show();
+        $('.reconnectRow').hide();
         
     }
 }
@@ -196,8 +209,8 @@ $('#btnSaveId').click(function () {
                 requestTypeId: $('#requestTypeId').val(),
                 remarks: $('#remarksId').val(),
                 requestMonth: $('#requestMonthId').val(),
-                requestYear: $('#requestYearId').val()
-
+                requestYear: $('#requestYearId').val(),
+                isOnuReturned: $('#isOnuReturnedId').is(":checked")
             }
         }
         else if (text == 'Reconnect') {
@@ -206,6 +219,7 @@ $('#btnSaveId').click(function () {
                 requestTypeId: $('#requestTypeId').val(),
                 requestCharge: $('#requestChargeId').val(),
                 remarks: $('#remarksId').val(),
+                newOnu: $('#assignOnuId').val()
             }
         }
         else if(text == 'Shifting'){
@@ -301,6 +315,7 @@ function clearUI() {
     $('#requiredNetInfoId').val('');
     $('#monthlyBillId').val('');
     $('.select2').trigger('change');
+    $('.switchery').trigger('click');
 }
 function onChangeHost() {
     if (dropTrigger == 1) {

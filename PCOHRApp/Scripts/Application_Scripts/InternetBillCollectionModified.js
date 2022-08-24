@@ -161,7 +161,7 @@ function clearUI() {
     $('#receiveAmountId').val('0');
     $('#advanceId').val('0');
     $('#custSLId').val('');
-    $('#pageNoId').val('');
+    //$('#pageNoId').val('');
     //$('#collectedById').val('0');
    // $('#receivedById').val('0');
     $('#customerNameId').val('');

@@ -22,6 +22,8 @@ namespace PCOHRApp.Models
         public int zoneId { get; set; }
         public int assignedUserId { get; set; }	
         public string remarks { get; set; }
+        public bool? isOnuReturned { get; set; }
+        public string newOnu { get; set; }
         public string requestMonth { get; set; }
         public int requestYear { get; set; }
         public string requestYearName { get; set; }

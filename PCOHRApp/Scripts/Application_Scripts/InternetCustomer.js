@@ -141,9 +141,9 @@ $('#btnSaveId').click(function () {
     else if ($('#connYearId').val() == '0') {
         toastr.error('Provide Connection Year!!');
     }
-    else if ($('#nidId').val() == '') {
-        toastr.error('Provide NID!!');
-    }
+    //else if ($('#nidId').val() == '') {
+    //    toastr.error('Provide NID!!');
+    //}
 
     else {
         var inputData = {

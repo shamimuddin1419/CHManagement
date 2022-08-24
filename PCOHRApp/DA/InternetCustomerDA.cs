@@ -97,7 +97,8 @@ namespace PCOHRApp.DA
                             connYearName = rdr["connYearName"].ToString(),
                             isActive = Convert.ToBoolean(rdr["isActive"]),
                             isActiveString = rdr["isActiveString"].ToString(),
-                            nid = rdr["nid"] == DBNull.Value ? null : rdr["nid"].ToString()
+                            nid = rdr["nid"] == DBNull.Value ? null : rdr["nid"].ToString(),
+                            onuMCId = rdr["OnuMC"] == DBNull.Value ? null : rdr["OnuMC"].ToString(),
                         }).ToList();
             return userList;
         }

@@ -144,7 +144,7 @@ namespace PCOHRApp.Controllers
                     || x.customerSerial.ToLower().StartsWith(search.ToLower()))).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid ,
                     }).ToList();
                 }
                 else if (searchBy.ToLower() == "name")
@@ -153,7 +153,7 @@ namespace PCOHRApp.Controllers
                     || x.customerName.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid ,
                     }).ToList();
                 }
                 else if (searchBy.ToLower() == "mobile")
@@ -162,9 +162,19 @@ namespace PCOHRApp.Controllers
                     || x.customerPhone.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid ,
                     }).ToList();
                 }
+                else if (searchBy.ToLower() == "nid")
+                {
+                    _objListAll = _dishCustomerDA.GetCustomerList().Where(x => x.isActive && ((search == null || search == "")
+                    || x.nid.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
+                    {
+                        id = x.id,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid 
+                    }).ToList();
+                }
+                
                 else
                 {
                     _objListAll = _dishCustomerDA.GetCustomerList().Where(x => x.isActive && ((search == null || search == "") || x.customerId.ToLower().Contains(search.ToLower())

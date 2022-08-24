@@ -30,6 +30,8 @@ namespace PCOHRApp.DA
                 cmd.Parameters.AddWithValue("@customerAddress", _obj.customerAddress);
                 cmd.Parameters.AddWithValue("@assignedUserId", _obj.assignedUserId);
                 cmd.Parameters.AddWithValue("@remarks", _obj.remarks);
+                cmd.Parameters.AddWithValue("@isOnuReturned", _obj.@isOnuReturned);
+                cmd.Parameters.AddWithValue("@newOnu", _obj.newOnu);
                 cmd.Parameters.AddWithValue("@requestMonth", _obj.requestMonth);
                 cmd.Parameters.AddWithValue("@requestYear", _obj.requestYear);
                 cmd.Parameters.AddWithValue("@createdBy", _obj.createdBy);

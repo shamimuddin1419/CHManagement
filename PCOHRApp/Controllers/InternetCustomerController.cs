@@ -144,7 +144,7 @@ namespace PCOHRApp.Controllers
                     || x.customerSerial.ToLower().StartsWith(search.ToLower()))).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid  + "#" + x.onuMCId
                     }).ToList();
                 }
                 else if (searchBy.ToLower() == "name")
@@ -153,7 +153,7 @@ namespace PCOHRApp.Controllers
                     || x.customerName.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid + "#" + x.onuMCId 
                     }).ToList();
                 }
                 else if (searchBy.ToLower() == "mobile")
@@ -162,7 +162,25 @@ namespace PCOHRApp.Controllers
                     || x.customerPhone.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid + "#" + x.onuMCId 
+                    }).ToList();
+                }
+                else if (searchBy.ToLower() == "nid")
+                {
+                    _objListAll = _internetCustomerDA.GetCustomerList().Where(x => x.isActive && ((search == null || search == "")
+                    || x.nid.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
+                    {
+                        id = x.id,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid  + "#" + x.onuMCId 
+                    }).ToList();
+                }
+                else if (searchBy.ToLower() == "onumc")
+                {
+                    _objListAll = _internetCustomerDA.GetCustomerList().Where(x => x.isActive && ((search == null || search == "")
+                    || x.onuMCId.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
+                    {
+                        id = x.id,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid  + "#" + x.onuMCId 
                     }).ToList();
                 }
                 else
@@ -173,7 +191,7 @@ namespace PCOHRApp.Controllers
                     || x.customerPhone.ToLower().Contains(search.ToLower()))).OrderByDescending(x => x.hostId).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone,
+                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid ?? "" + "#" + x.onuMCId
                     }).ToList();
                 }
 
