@@ -135,7 +135,7 @@ function onReqTypeChanged() {
         $('.shiftingRow').hide();
         $('.disconnectRow').hide();
         $('#updatedMonthlyBillFormGroup').hide();
-        $('#requestChargeFormGroup').hide();
+        $('#requestChargeFormGroup').show();
         $('.reconnectRow').show();
 
     }
