@@ -21,6 +21,7 @@ namespace PCOHRApp.Models
        // public string rentStartDate { get; set; }
         public string rentEndDate { get; set; }
         public decimal currentRentAmount { get; set; }
+        public decimal advanceAmount { get; set; }
         public decimal monthlyRent { get; set; }
         public int createdBy { get; set; }
     }

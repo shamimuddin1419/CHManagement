@@ -1,0 +1,78 @@
+﻿<section>
+    <div class="card">
+        @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4><i class="ft-zoom-in"></i> Generate Internet Bill</h4>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                        <i class="ft-x"></i> Clear
+                    </button>
+                    <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                        <i class="fa fa-check-square-o"></i> Generate Bill
+                    </button>
+                    <button type="button" id="btnListId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-list"></i> Bill List
+                    </button>
+                    <button type="button" id="btnCreateId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-user"></i> Generate New
+                    </button>
+                    <button type="button" id="btnSearchId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-search"></i> Search
+                    </button>
+                </div>
+            </div>
+            @Html.Partial("~/Views/Shared/_HouseRentBillGenerateSelectCustomer.cshtml")
+            @*<div id="customerBillListId" class="billList">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group requiredFormGroup">
+                            <label for="requestMonthSearchId">Effective Month</label>
+                            <select class="form-control select2 border-danger" id="requestMonthSearchId">
+                                <option value="0">Select Month</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group requiredFormGroup">
+                            <label for="requestYearSearchId ">Effective Year</label>
+                            <select class="form-control select2 border-danger" id="requestYearSearchId">
+                                <option value="0">Select Year</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <table id="customerBillListTableId" class="table table-info table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Dlt</th>
+                            <th>Customer Serial </th>
+                            <th>Customer Name</th>
+                            <th>Month</th>
+                            <th>Year</th>
+                            <th>Bill Amount</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>*@
+        </div>
+    </div>
+    @Html.Partial("~/Views/Shared/_HouseRenterInfo.cshtml")
+</section>
+<script src="~/Scripts/Application_Scripts/HouseRentBillGenerate.js"></script>

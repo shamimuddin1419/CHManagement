@@ -74,6 +74,24 @@ namespace PCOHRApp.Controllers
             }
 
         }
-        
+        [HttpGet]
+        public JsonResult GetHouseListByProjectForDropdown(int id)
+        {
+            try
+            {
+                var _objList = _da.GetHouseListByProjectIdAndId(projectId: id).Select(x => new
+                {
+                    id = x.houseId,
+                    text = x.houseName,
+                }).ToList();
+
+                return Json(new { success = true, data = _objList }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
     }
 }

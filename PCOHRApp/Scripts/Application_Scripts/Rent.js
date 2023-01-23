@@ -78,7 +78,8 @@ $('#btnSaveId').click(() => {
         houseId: $('#houseId').val(),
         rentFromMonth: $('#rentFromMonthId').val(),
         rentFromYear: $('#rentFromYearId').val(),
-        currentRentAmount: $('#rentAmountId').val()
+        currentRentAmount: $('#rentAmountId').val(),
+        advanceAmount: $('#advanceAmountId').val()
     };
     $.post('/Rent/InsertRentHouse', inputData, (data) => {
         if (data.success == true) {

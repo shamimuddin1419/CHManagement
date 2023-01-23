@@ -66,6 +66,7 @@ namespace PCOHRApp.DA
                 cmd.Parameters.AddWithValue("@rentFromMonth", _obj.rentFromMonth);
                 cmd.Parameters.AddWithValue("@rentFromYear", _obj.rentFromYear);
                 cmd.Parameters.AddWithValue("@currentRentAmount", _obj.currentRentAmount);
+                cmd.Parameters.AddWithValue("@advanceAmount", _obj.advanceAmount);
                 cmd.Parameters.AddWithValue("@createdBy", _obj.createdBy);
                 cmd.CommandTimeout = 0;
                 con.Open();

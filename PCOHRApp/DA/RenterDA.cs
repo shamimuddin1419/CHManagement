@@ -47,5 +47,40 @@ namespace PCOHRApp.DA
                         }).ToList();
             return userList;
         }
+
+        public CurrnetHouseRenterVM GetCurrentHouseRenter(int houseId,int effectiveMonth, int effectiveYear)
+        {
+            DataTable dt = new DataTable();
+            CurrnetHouseRenterVM result = null;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("gsp_getCurrentRenterByHouse", con);
+                cmd.Parameters.AddWithValue("@houseId", houseId);
+                cmd.Parameters.AddWithValue("@effectiveMonth", effectiveMonth);
+                cmd.Parameters.AddWithValue("@effectiveYear", effectiveYear);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                var da = new SqlDataAdapter(cmd);
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                con.Close();
+            }
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                result = new CurrnetHouseRenterVM
+                {
+                    renterHouseId = Convert.ToInt32(row["renterHouseId"]),
+                    caretakerName = row["renterName"].ToString(),
+                    connectionMonth = row["connectionMonth"].ToString(),
+                    currentRentAmount = Convert.ToDecimal(row["currentRentAmount"]),
+                    houseType = row["houseType"].ToString(),
+                    renterName = row["renterName"].ToString(),
+                    renterNID = row["renterNID"].ToString(),
+                    renterPhone = row["renterPhone"].ToString(),
+                };
+            }
+            return result;
+        }
     }
 }

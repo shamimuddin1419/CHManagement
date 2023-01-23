@@ -12,7 +12,7 @@ namespace PCOHRApp.DA
     public class HouseDA
     {
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        public List<HouseVM> GetHouseListByProjectIdAndId(int projectId, int houseId)
+        public List<HouseVM> GetHouseListByProjectIdAndId(int projectId, int houseId=0)
         {
             DataTable dt = new DataTable();
             List<HouseVM> careTakerList = new List<HouseVM>();
