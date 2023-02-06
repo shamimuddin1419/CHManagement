@@ -35,6 +35,7 @@ namespace PCOHRApp.DA
                                  rptCompanyAddress = rdr["rptCompanyAddress"].ToString(),
                                  houseId = Convert.ToInt16(rdr["houseId"]),
                                  houseName = rdr["houseName"].ToString(),
+                                 meterNo = rdr["meterNo"].ToString(),
                                  projectId = Convert.ToInt32(rdr["projectId"]),
                                  houseType = rdr["houseType"].ToString(),
                                  monthlyRent = Convert.ToDecimal(rdr["monthlyRent"]),
@@ -54,6 +55,7 @@ namespace PCOHRApp.DA
                 cmd.Parameters.AddWithValue("@houseId", _obj.houseId);
                 cmd.Parameters.AddWithValue("@projectId", _obj.projectId);
                 cmd.Parameters.AddWithValue("@houseName", _obj.houseName);
+                cmd.Parameters.AddWithValue("@meterNo", _obj.meterNo);
                 cmd.Parameters.AddWithValue("@houseType", _obj.houseType);
                 cmd.Parameters.AddWithValue("@description", _obj.description);
                 cmd.Parameters.AddWithValue("@monthlyRent", _obj.monthlyRent);

@@ -5,7 +5,7 @@
         public string companyName { get; set; }
         public string companyAddress { get; set; }
         public string renterAddress { get; set; }
-        public int renterHouseId { get; set; }
+        public int? renterHouseId { get; set; }
         public string isClosedString { get; set; }
         public int billDetailId { get; set; }
         public string renterName { get; set; }

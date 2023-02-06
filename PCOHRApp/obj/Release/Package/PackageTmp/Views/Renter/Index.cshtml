@@ -1,0 +1,128 @@
+﻿
+<section>
+
+    <div class="card">
+        @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+        <div class="card-body">
+            <form class="form">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4><i class="ft-user-plus"></i> Renter Setup</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                                <i class="ft-x"></i> Clear
+                            </button>
+                            <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                                <i class="fa fa-check-square-o"></i> Save
+                            </button>                          
+                         
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div id="customerFormId" class="col-md-5">
+                            @*<input type="hidden" id="customerId" />*@
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="customerNameId" class="label-control">Renter Name</label>
+                                        <input class="form-control  border-danger" type="text" placeholder="Enter Renter Name" id="customerNameId">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="customerNameId" class="label-control">Mobile No</label>
+                                        <input class="form-control  border-danger" type="text" placeholder="Enter Mobile No" id="customerNameId">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="customerNameId" class="label-control">NID No</label>
+                                        <input class="form-control  border-danger" type="text" placeholder="Enter NID No" id="customerNameId">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="customerNameId" class="label-control">Email</label>
+                                        <input class="form-control  border-danger" type="text" placeholder="Enter Email Address" id="customerNameId">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="customerNameId" class="label-control">Emergency Contact Name</label>
+                                        <input class="form-control  border-danger" type="text" placeholder="Enter Emergency Contact Name" id="customerNameId">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="customerNameId" class="label-control">Emergency Contact Mobile</label>
+                                        <input class="form-control  border-danger" type="text" placeholder="Enter Emergency Contact Mobile" id="customerNameId">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="customerNameId" class="label-control">Reference Info.</label>
+                                        <input class="form-control  border-danger" type="text" placeholder="Enter Reference Info." id="customerNameId">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="customerNameId" class="label-control">Document Upload</label>
+                                        <div class="custom-file">
+                                            <input type="file" id="myFile" name="filename">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="checkbox" id="isActive" class="switchery switchery-small" checked />
+                                        <label for="isActive" class="font-medium-2 text-bold-600 ml-1">Is Active</label>&nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="customerListId" class="col-md-7 small" style="width : 100%">
+                            <table id="customerListTableId" class="table table-bordered  table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Edit </th>
+                                        <th>Renter Name</th>
+                                        <th>Mobile No</th>
+                                        <th>NID No</th>
+                                        <th>Emg.Name</th>
+                                        <th>Emg.Mobile</th>                                      
+                                       
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</section>
+<script src="~/Scripts/Application_Scripts/Renter.js"></script>

@@ -34,6 +34,7 @@ function loadHouseList() {
             "columns":
             [
                 { "data": "houseName", "autoWidth": true },
+                { "data": "meterNo", "autoWidth": true },
                 { "data": "houseType", "autoWidth": true }
 
             ]
@@ -52,6 +53,9 @@ $('#btnSaveId').click(function () {
     else if ($('#houseNameId').val() == '') {
         showErrorMessage('Provide House Name!!');
     }
+    else if ($('#meterNoId').val() == '') {
+        showErrorMessage('Provide Meter Number');
+    }
     else if ($('#houseTypeId').val() == '') {
         showErrorMessage('Provide House Type!!');
     }
@@ -62,6 +66,7 @@ $('#btnSaveId').click(function () {
         var inputData = {
             houseId: $('#houseId').val(),
             houseName: $('#houseNameId').val(),
+            meterNo: $('#meterNoId').val(),
             projectId: $('#projectId').val(),
             monthlyRent: $('#monthlyRentId').val(),
             description: $('#houseDescriptionId').val(),
@@ -140,6 +145,7 @@ $('#btnListId').click(function () {
             },
             { "data": "projectName", "autoWidth": true },
             { "data": "houseName", "autoWidth": true },
+            { "data": "meterNo", "autoWidth": true },
             { "data": "houseType", "autoWidth": true },
             { "data": "monthlyRent", "autoWidth": true }
 
@@ -157,6 +163,7 @@ function EditHouse(input) {
 
             $('#houseId').val(data.data.houseId),
             $('#houseNameId').val(data.data.houseName),
+            $('#meterNoId').val(data.data.meterNo),
             $('#houseTypeId').val(data.data.houseType),
             $('#projectId').val(data.data.projectId),
             $('#monthlyRentId').val(data.data.monthlyRent),
@@ -172,6 +179,7 @@ function clearUI() {
 
     $('#houseId').val('0');
     $('#houseNameId').val('');
+    $('#meterNoId').val('');
     $('#projectId').val('0');
     $('#monthlyRentId').val('0'),
     $('#houseDescriptionId').val(''),

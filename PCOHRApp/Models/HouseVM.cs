@@ -11,6 +11,7 @@ namespace PCOHRApp.Models
         public string rptCompanyAddress { get; set; }
         public int houseId { get; set; }
         public string houseName { get; set; }
+        public string meterNo { get; set; }
         public int projectId { get; set; }
         public string houseType { get; set; }
         public decimal monthlyRent { get; set; }

@@ -1,0 +1,253 @@
+﻿<section>
+    <div class="card">
+        @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4><i class="ft-zoom-in"></i> Update Bill</h4>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" id="btnDownloadId" class="btn btn-info pull-right menuBtn" style="display:none">
+                        <i class="fa fa-cloud-download"></i> Download Bill
+                    </button>
+                    <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                        <i class="ft-x"></i> Clear
+                    </button>
+                    <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                        <i class="fa fa-check-square-o"></i> Update Bill
+                    </button>
+                    <button type="button" id="btnListId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-list"></i> Bill List
+                    </button>
+                    <button type="button" id="btnCreateId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-user"></i> Generate New
+                    </button>
+                    <button type="button" id="btnSearchId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-search"></i> Search
+                    </button>
+
+                </div>
+            </div>
+            <div id="billListId" class="billList">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group requiredFormGroup">
+                            <label for="requestMonthSearchId">Effective Month</label>
+                            <select class="form-control select2 border-danger" id="requestMonthSearchId">
+                                <option value="0">Select Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group requiredFormGroup">
+                            <label for="requestYearSearchId ">Effective Year</label>
+                            <select class="form-control select2 border-danger" id="requestYearSearchId">
+                                <option value="0">Select Year</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <table id="billListTableId" class="table table-info table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>House</th>
+                            <th>Renter</th>
+                            <th>BillMonth</th>
+                            <th>Rent</th>
+                            <th>Gas</th>
+                            <th>Electricity</th>
+                            <th>Water</th>
+                            <th>Service</th>
+                            <th>Others</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
+            <div class="row mt-1 updateBillCard">
+                <div class="col-md-4">
+                    <div class="form-group requiredFormGroup">
+                        <label for="projectId">Project</label>
+                        <select class="form-control select2  border-danger" id="projectId">
+                            <option value="0">Select Project</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="houseId">House</label>
+                        <select class="form-control select2 border-danger" id="houseId">
+                            <option value="0">Select House</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="billDetailId">Update Month</label>
+                        <select class="form-control select2 border-danger" id="billDetailId">
+                            <option value="0">Select Month</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="card updateBillCard">
+        <div class="card-header">
+            Update Utilities
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Unpaid Month</label>
+                        <input class="form-control" id="unPaidMonthId" type="text" readonly />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="billAmountId">Base Rent</label>
+                        <input class="form-control" id="billAmountId" type="text" readonly />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Gas Charge</label>
+                        <input class="form-control" id="gasChargeId" type="number" value="0" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="electricityChargeId">Electricity Charge</label>
+                        <input class="form-control" id="electricityChargeId" type="text" value="0" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="waterChargeId">Water Charge</label>
+                        <input class="form-control" id="waterChargeId" type="number" value="0" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Service Charge</label>
+                        <input class="form-control" id="serviceChargeId" type="number" value="0" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="otherChargeId">Other Charge</label>
+                        <input class="form-control" id="otherChargeId" type="text" value="0" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="card houseInfoDiv updateBillCard">
+        <div class="card-header">
+            House Information
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>House Type</label>
+                        <input class="form-control" id="houseTypeId" type="text" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="houseNameId">House Name</label>
+                        <input class="form-control" id="houseNameId" type="text" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="meterNoId">Meter</label>
+                        <input class="form-control" id="meterNoId" type="text" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Renter Name</label>
+                        <input class="form-control" id="renterNameId" type="text" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="renterNID">Renter NID</label>
+                        <input class="form-control" id="renterNID" type="text" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="renterPhoneId">Renter Phone</label>
+                        <input class="form-control" id="renterPhoneId" type="text" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Renter Email</label>
+                        <input class="form-control" id="renterEmailId" type="text" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="rentStartFromId">Rent Start</label>
+                        <input class="form-control" id="rentStartFromId" type="text" readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="rentEndToId">Rent End</label>
+                        <input class="form-control" id="rentEndToId" type="text" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="renterEmergencyContactNameId">EmergencyContact Name</label>
+                        <input class="form-control" id="renterEmergencyContactNameId" type="text" readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="renterEmergencyContactPhoneId">Renter Contact Number</label>
+                        <input class="form-control" id="renterEmergencyContactPhoneId" type="text" readonly>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</section>
+<script src="~/Scripts/Application_Scripts/UpdateHouseBill.js"></script>

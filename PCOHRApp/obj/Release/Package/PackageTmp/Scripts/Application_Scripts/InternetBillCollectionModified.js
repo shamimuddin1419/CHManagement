@@ -304,6 +304,7 @@ function changeCustomer() {
             $('#lblEntryDateForTop').text(data.data.EntryDateString);
             $('#lblOnuMacForTop').text(data.data.onuMCId);
             $('#connectionMonthId').val(data.data.connMonth == '0' ? '' : data.data.connMonth + ',' + (data.data.connYearName == 'null' ? '' : data.data.connYearName));
+            $('#lblDisconnectionDateId').text(data.data.disconnectedDateString);
         });
         $.get('/InternetBillCollection/GetPreviousInfoList/' + $('#customerId').val(), function (data) {
             HideFeeFields();

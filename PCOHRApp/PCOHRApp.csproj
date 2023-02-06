@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,7 +42,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -126,6 +135,8 @@
     <Compile Include="Controllers\DishBillGenerateController.cs" />
     <Compile Include="Controllers\DishBillCollectionController.cs" />
     <Compile Include="Controllers\DishMonthlyBillDeleteController.cs" />
+    <Compile Include="Controllers\HouseRentBillGenerateController.cs" />
+    <Compile Include="Controllers\HouseReportController.cs" />
     <Compile Include="Controllers\InternetSerialNoWiseTranController.cs" />
     <Compile Include="Controllers\DishSerialNoWiseTranController.cs" />
     <Compile Include="Controllers\HouseController.cs" />
@@ -146,6 +157,7 @@
     <Compile Include="Controllers\InternetMonthlyBillDeleteListController.cs" />
     <Compile Include="Controllers\LordInfoController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\RenterController.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
     <Compile Include="DA\CareTakerDA.cs" />
@@ -170,6 +182,9 @@
     <Compile Include="DA\InternetMonthlyBillDeleteDA.cs" />
     <Compile Include="DA\LordInfoDA.cs" />
     <Compile Include="DA\ProjectDA.cs" />
+    <Compile Include="DA\HouseBillGenerateDA.cs" />
+    <Compile Include="DA\RentDA.cs" />
+    <Compile Include="DA\RenterDA.cs" />
     <Compile Include="DA\ReportDA.cs" />
     <Compile Include="DA\UserDA.cs" />
     <Compile Include="DA\ZoneDA.cs" />
@@ -178,21 +193,28 @@
     </Compile>
     <Compile Include="Models\BillCollectionVM.cs" />
     <Compile Include="Models\BillDelete.cs" />
+    <Compile Include="Models\HouseBillGenerateVM.cs" />
     <Compile Include="Models\BillGenerateVM.cs" />
     <Compile Include="Models\CardBillPrintVM.cs" />
     <Compile Include="Models\CareTakerVM.cs" />
+    <Compile Include="Models\CurrnetHouseRenterVM.cs" />
+    <Compile Include="Models\CustomerCardInfoVM.cs" />
     <Compile Include="Models\CustomerRequestTypeVM.cs" />
     <Compile Include="Models\CustomerVM.cs" />
     <Compile Include="Models\DashBoardDataVM.cs" />
     <Compile Include="Models\DesignationVM.cs" />
     <Compile Include="Models\DropdownVM.cs" />
     <Compile Include="Models\HostVM.cs" />
+    <Compile Include="Models\HouseBillInformationVM.cs" />
     <Compile Include="Models\HouseVM.cs" />
     <Compile Include="Models\LordInfoVM.cs" />
     <Compile Include="Models\Param.cs" />
     <Compile Include="Models\PayedBillVM.cs" />
     <Compile Include="Models\PreviousBillInfoVM.cs" />
     <Compile Include="Models\ProjectVM.cs" />
+    <Compile Include="Models\RenterVM.cs" />
+    <Compile Include="Models\RentVM.cs" />
+    <Compile Include="Models\UnUpdatedHouseBillVM.cs" />
     <Compile Include="Models\UserPageVM.cs" />
     <Compile Include="Models\UserVM.cs" />
     <Compile Include="Models\CustomerRequestVM.cs" />
@@ -2573,11 +2595,33 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Pub_files\gsp_getDishCustomerById.sql" />
+    <Content Include="Pub_files\gsp_getDishCustomerCardInfo.sql" />
+    <Content Include="Pub_files\gsp_getDishCustomerCardInfoById.sql" />
+    <Content Include="Pub_files\gsp_getDishCustomerCardInfoForDropdown.sql" />
+    <Content Include="Pub_files\gsp_getDishCustomers.sql" />
+    <Content Include="Pub_files\gsp_getInternetCustomerById.sql" />
+    <Content Include="Pub_files\gsp_getInternetCustomerCardInfo.sql" />
+    <Content Include="Pub_files\gsp_getInternetCustomerCardInfoById.sql" />
+    <Content Include="Pub_files\gsp_getInternetCustomerCardInfoForDropdown.sql" />
+    <Content Include="Pub_files\gsp_getInternetCustomers.sql" />
+    <Content Include="Pub_files\HouseRentPageInsert.sql" />
+    <Content Include="Pub_files\isp_DishCustomer.sql" />
+    <Content Include="Pub_files\isp_DishCustomerCardInfo.sql" />
+    <Content Include="Pub_files\isp_InternetCustomer.sql" />
+    <Content Include="Pub_files\isp_InternetCustomerCardInfo.sql" />
+    <Content Include="Pub_files\pageInsert.sql" />
+    <Content Include="Pub_files\table.sql" />
+    <Content Include="Pub_files\table2.sql" />
     <Content Include="Scripts\Application_Scripts\DataBaseBackUp.js" />
+    <Content Include="Scripts\Application_Scripts\DishCustomerCardInfo.js" />
+    <Content Include="Scripts\Application_Scripts\HouseRentBillGenerate.js" />
     <Content Include="Scripts\Application_Scripts\InternetBillCard.js" />
     <Content Include="Scripts\Application_Scripts\DishCollectionPageGroup.js" />
     <Content Include="Scripts\Application_Scripts\DishCollectionPageBetween.js" />
     <Content Include="Scripts\Application_Scripts\DishBillCard.js" />
+    <Content Include="Scripts\Application_Scripts\InternetCustomerCardInfo.js" />
+    <Content Include="Scripts\Application_Scripts\Rent.js" />
     <Content Include="Scripts\Application_Scripts\Renter.js" />
     <Content Include="Scripts\Application_Scripts\InternetCollectionPageGroup.js" />
     <Content Include="Scripts\Application_Scripts\InternetCollectionPageBetween.js" />
@@ -2623,6 +2667,7 @@
     <Content Include="Scripts\Application_Scripts\RptMonthWiseInternetBill.js" />
     <Content Include="Scripts\Application_Scripts\RptMonthWiseDishBill.js" />
     <Content Include="Scripts\Application_Scripts\UpdateDishCollection.js" />
+    <Content Include="Scripts\Application_Scripts\UpdateHouseBill.js" />
     <Content Include="Scripts\Application_Scripts\UpdateInternetCollection.js" />
     <Content Include="Scripts\Application_Scripts\UserPageMapping.js" />
     <Content Include="Scripts\Application_Scripts\Zone.js" />
@@ -2996,6 +3041,7 @@
     <Content Include="RPTDatasets\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
+    <Content Include="Pub_files\PCOHR.bak" />
     <None Include="RPTDatasets\DataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -3119,12 +3165,20 @@
     <Content Include="Views\Renter\Index.cshtml" />
     <Content Include="Views\CableReport\DishBillCard.cshtml" />
     <Content Include="Views\CableReport\IntBillCard.cshtml" />
+    <Content Include="Views\DishCustomer\CustomerCardInfo.cshtml" />
+    <Content Include="Views\InternetCustomer\CustomerCardInfo.cshtml" />
+    <Content Include="Views\Rent\Index.cshtml" />
+    <Content Include="Views\HouseRentBillGenerate\Index.cshtml" />
+    <Content Include="Views\Shared\_HouseRentBillGenerateSelectCustomer.cshtml" />
+    <Content Include="Views\Shared\_HouseRenterInfo.cshtml" />
+    <Content Include="Views\HouseRentBillGenerate\UpdateBill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\SeatChart\assets\icons\" />
     <Folder Include="Views\Designation\" />
     <Folder Include="Views\Dropdown\" />
+    <Folder Include="Views\HouseReport\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -3138,6 +3192,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Reports\DishBillCollectionPageBetween.rdlc" />
     <EmbeddedResource Include="Reports\BillCard.rdlc" />
+    <EmbeddedResource Include="Reports\HostList.rdlc" />
     <EmbeddedResource Include="Reports\InternetBillCollectionPageBetween.rdlc" />
     <EmbeddedResource Include="Reports\InternetCollectionPageGroup.rdlc" />
     <EmbeddedResource Include="Reports\DishCollectionPageGroup.rdlc" />
@@ -3145,7 +3200,7 @@
     <EmbeddedResource Include="Reports\DishBillDetails.rdlc" />
     <EmbeddedResource Include="Reports\MonthWiseDishBillGenerate.rdlc" />
     <EmbeddedResource Include="Reports\MonthWiseInternetBillGenerate.rdlc" />
-    <EmbeddedResource Include="Reports\HostList.rdlc" />
+    <EmbeddedResource Include="Reports\HouseBill.rdlc" />
     <EmbeddedResource Include="Reports\InternetPaymentHistory.rdlc" />
     <EmbeddedResource Include="Reports\DishPaymentHistory.rdlc" />
     <EmbeddedResource Include="Reports\DishCustomerDue.rdlc" />

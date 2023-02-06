@@ -1,0 +1,104 @@
+﻿<section>
+    <div class="card">
+        <div class="card-body">
+            @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+            <div class="row">
+                <div class="col-md-5">
+                    <h4><i class="ft-zoom-in"></i> Dish Customer Card Generate</h4>
+
+                </div>
+                <div class="col-md-7">
+                    <a class="btn btn-primary pull-right menuBtn" href="/CableReport/DishBillCard/Index">
+                        <i class="fa fa-reply"></i> Go to Card Print
+                    </a>
+                    <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                        <i class="ft-x"></i> Clear
+                    </button>
+                    <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                        <i class="fa fa-check-square-o"></i> Save Card
+                    </button>
+                    @*<button type="button" id="btnSearchId" class="btn btn-info pull-right menuBtn">
+                    <i class="fa fa-search"></i> Search
+                </button>*@
+                </div>
+            </div>
+            <input type="hidden" id="insertFlagId" value="1" />
+            <input type="hidden" id="customerInfoId"  />
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group requiredFormGroup">
+                        <label for="customerId">গ্রাহক</label> (
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" checked value="Card">
+                            <label class="form-check-label" for="inlineRadio1">কার্ড</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Mobile">
+                            <label class="form-check-label" for="inlineRadio2">মোবাইল</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Name">
+                            <label class="form-check-label" for="inlineRadio3">নাম</label>
+                        </div>)
+                        <select class="form-control select2 border-danger" id="customerId" onchange="changeCustomer()">
+                            <option value="0" min="0">গ্রাহক সিলেক্ট করুন</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="customerLocalityId">এলাকা</label>
+                            <input class="form-control border-primary border-danger" id="customerLocalityId" type="tel" placeholder="গ্রাহকের এলাকা দিন">
+                        </div>
+
+                        <div class="form-group requiredFormGroup">
+                            <label for="customerNameId" class="label-control">গ্রাহকের নাম</label>
+                            <input class="form-control  border-danger" type="text" placeholder="গ্রাহকের নাম দিন" id="customerNameId">
+                        </div>
+                        <div class="form-group requiredFormGroup">
+                            <label for="phoneNumberId">গ্রাহকের মোবাইল</label>
+                            <input class="form-control border-primary border-danger" id="phoneNumberId" type="tel" placeholder="গ্রাহকের মোবাইল নং দিন">
+                        </div>
+                        <div class="form-group">
+                            <label for="ownerNameId" class="label-control">বাড়ির মালিকের নাম</label>
+                            <input class="form-control  border-danger" type="text" placeholder="বাড়ির মালিকের দিন" id="ownerNameId">
+                        </div>
+                        <div class="form-group">
+                            <label for="ownerPhoneNumberId">বাড়ির মালিকের মোবাইল</label>
+                            <input class="form-control border-primary border-danger" id="ownerPhoneNumberId" type="tel" placeholder="বাড়ির মালিকের মোবাইল নং দিন">
+                        </div>
+
+                        <div class="form-group ui-widget">
+                            <label for="addressId">ঠিকানা</label>
+                            <input class="form-control border-primary typeahead" id="addressId" type="text" placeholder="ঠিকানা দিন">
+                        </div>
+
+                    </div>
+                    <div class="col-md-7 small" style="width : 100%">
+                        <table id="customerCardListTableId" class="table table-bordered  table-striped">
+                            <thead>
+                                <tr>
+                                    <th>এডিট </th>
+                                    <th>সিরিয়াল</th>
+                                    <th>নাম</th>
+                                    <th>মোবাইল নাম্বার</th>
+                                    <th>বাড়ির মালিকের নাম</th>
+                                    <th>বাড়ির মালিকের নাম্বার</th>
+                                </tr>
+
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</section>
+
+<script src="~/Scripts/Application_Scripts/DishCustomerCardInfo.js"></script>
