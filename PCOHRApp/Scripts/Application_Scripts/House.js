@@ -11,6 +11,7 @@ function loadCreateUI() {
     $('#btnSaveId').show();
     $('#btnClearId').show();
     $('#btnListId').show();
+    $('#monthlyRentId').attr('readonly', 'false');
     var projects = [];
     $.get('/Project/GetProjectListForDropdown', function (data) {
         projects = data.data;
@@ -168,7 +169,7 @@ function EditHouse(input) {
             $('#projectId').val(data.data.projectId),
             $('#monthlyRentId').val(data.data.monthlyRent),
             $('#houseDescriptionId').val(data.data.description),
-            
+            $('#monthlyRentId').attr('readonly', 'true');
             $('.select2').trigger('change');
 
             $('#btnSaveId').html('<i class="fa fa-check-square-o"></i> Update');

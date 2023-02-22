@@ -1,0 +1,216 @@
+﻿<section>
+    <div class="card">
+        @Html.Partial("~/Views/Shared/_MessageBox.cshtml")
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4><i class="ft-zoom-in"></i>Bill Collection</h4>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" id="btnDownloadId" class="btn btn-info pull-right menuBtn" style="display:none">
+                        <i class="fa fa-cloud-download"></i> Download Bill
+                    </button>
+                    <button type="button" class="btn btn-warning pull-right menuBtn" id="btnClearId">
+                        <i class="ft-x"></i> Clear
+                    </button>
+                    <button type="button" id="btnSaveId" class="btn btn-success pull-right menuBtn">
+                        <i class="fa fa-check-square-o"></i> Collect Bill
+                    </button>
+                    <button type="button" id="btnListId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-list"></i> Collection List
+                    </button>
+                    <button type="button" id="btnCreateId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-user"></i> Generate New
+                    </button>
+                    @*<button type="button" id="btnSearchId" class="btn btn-info pull-right menuBtn">
+                        <i class="fa fa-search"></i> Search
+                    </button>*@
+                </div>
+            </div>
+            @Html.Partial("~/Views/Shared/_HouseRentBillCollectionSelectCustomer.cshtml")
+            <br />
+        <div id="billListId" class="billList">
+            <table id="billListTableId" class="table table-info table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>PaymentRef</th>
+                        <th>House</th>
+                        <th>Renter</th>
+                        <th>BillMonth</th>
+                        <th>ReceiveAmount</th>
+                        <th>CollectionDate</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+        </div>
+    </div>
+    <div class="card billInfoCardId" style="display:none;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>House type</label>
+                                <input type="text" class="form-control" id="houseTypeId" readonly />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>House</label>
+                                <input type="text" class="form-control" id="houseNameId" readonly />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Renter</label>
+                                <input type="text" class="form-control" id="renterNameId" readonly />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>NID</label>
+                                <input type="text" class="form-control" id="renternid" readonly />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Renter Phone</label>
+                                <input type="text" class="form-control" id="renterPhoneId" readonly />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Advance Amount</label>
+                                <input type="text" class="form-control" id="advanceAmountId" readonly value="0" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Payable Amount</label>
+                                <input type="number" class="form-control" id="payableAmountId" readonly value="0" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Receive Amount</label>
+                                <input type="number" class="form-control" id="rcvAmountId" readonly value="0" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label> Adjust from Advance</label>
+                                <input type="text" class="form-control" id="adjustAmountid" value="0" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Discount</label>
+                                <input type="number" class="form-control" id="discountId" value="0" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label> Description</label>
+                                <textarea class="form-control" id="descripionId" value="0" ></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Collection Date</label>
+                                <div class='input-group date ' id='collectionDateId'>
+                                    <input type='text' class="form-control border-danger" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-3">
+                    <h4>Bill Information</h4>
+                    <div class="list-group" style="color:black;">
+                        <div class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">
+                                    Rent Amount
+                                </h6>
+                            </div>
+                            <span id="rentAmountId">0.00</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">
+                                    Gas Charge
+                                </h6>
+                            </div>
+                            <span id="gasChargeId">0.00</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">
+                                    Electricity Charge
+                                </h6>
+                            </div>
+                            <span id="electricityChargeId">0.00</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">
+                                    Water Charge
+                                </h6>
+                            </div>
+                            <span id="waterChargeId">0.00</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">
+                                    Service Charge
+                                </h6>
+                            </div>
+                            <span id="serviceChargeId">0.00</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">
+                                    Other Charge
+                                </h6>
+                            </div>
+                            <span id="otherChargeId">0.00</span>
+                        </div>
+
+                        <div class="list-group-item d-flex justify-content-between lh-condensed " style="border-top-color:black;">
+                            <div>
+                                <h6 class="my-0">
+                                    Total
+                                </h6>
+                            </div>
+                            <span id="billAmountId">0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/Application_Scripts/HouseRenterBillCollection.js"></script>
+

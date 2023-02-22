@@ -1,0 +1,65 @@
+﻿<div class="card customerRequestForm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="requestTypeId">Request Type</label>
+                    <select class="form-control select2 border-danger" id="requestTypeId">
+                        <option value="0">Select Request Type</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="col-md-6 updatedMonthlyRentFormGroup" style="display:none;" >
+                @*<div class="form-group" id="requestChargeFormGroup">
+                    <label for="requestChargeId">Request Charge</label>
+                    <input type="number" id="requestChargeId" placeholder="Enter Charge" value="0" class="form-control border-danger">
+                </div>*@
+                <div class="form-group">
+                    <label for="updatedMonthlyBillId">New Monthly Bill</label>
+                    <input type="number" id="updatedMonthlyBillId" placeholder="Enter Monthly Rent" class="form-control border-danger" >
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="remarksId">Remarks</label>
+                    <input class="form-control" type="text" placeholder="Enter Remarks" id="remarksId">
+                </div>
+            </div>
+        </div>
+        <div class="row disconnectRow" style="display:none;">
+            <div class="col-md-6">
+                <div class="form-group requiredFormGroup">
+                    <label for="requestMonthId">Effective Month</label>
+                    <select class="form-control select2 border-danger" id="requestMonthId">
+                        <option value="0">Select Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group requiredFormGroup">
+                    <label for="requestYearId ">Effective Year</label>
+                    <select class="form-control select2 border-danger" id="requestYearId">
+                        <option value="0">Select Year</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

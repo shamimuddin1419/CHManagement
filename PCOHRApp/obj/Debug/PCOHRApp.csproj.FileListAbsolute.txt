@@ -84,9 +84,6 @@ D:\WorkStation\Pproject\CableManagement\PCPHRAPP-master\PCOHRApp\obj\Debug\PCOHR
 D:\WorkStation\Pproject\CableManagement\PCPHRAPP-master\PCOHRApp\obj\Debug\PCOHRApp.csprojResolveAssemblyReference.cache
 D:\WorkStation\Pproject\CableManagement\PCPHRAPP-master\PCOHRApp\obj\Debug\RdlCompile.cache
 D:\WorkStation\Pproject\CableManagement\PCPHRAPP-master\PCOHRApp\obj\Debug\RdlCompile.compiled
-D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\obj\Debug\PCOHRApp.csproj.CoreCompileInputs.cache
-D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\obj\Debug\PCOHRApp.dll
-D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\obj\Debug\PCOHRApp.pdb
 D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\bin\PCOHRApp.dll.config
 D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\bin\PCOHRApp.dll
 D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\bin\PCOHRApp.pdb
@@ -111,8 +108,10 @@ D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\bin\System.Web.WebPages.Deploymen
 D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\bin\System.Web.WebPages.Razor.xml
 D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\bin\Antlr3.Runtime.pdb
 D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\bin\Newtonsoft.Json.xml
-D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\obj\Debug\PCOHRApp.csproj.CopyComplete
-D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\bin\Microsoft.SqlServer.Types.dll
 D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\obj\Debug\PCOHRApp.csprojAssemblyReference.cache
 D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\obj\Debug\RdlCompile.cache
 D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\obj\Debug\RdlCompile.compiled
+D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\obj\Debug\PCOHRApp.csproj.CoreCompileInputs.cache
+D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\obj\Debug\PCOHRApp.csproj.CopyComplete
+D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\obj\Debug\PCOHRApp.dll
+D:\Shamim\PCOHRAPPLatest\CHManagement\PCOHRApp\obj\Debug\PCOHRApp.pdb

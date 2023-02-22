@@ -96,10 +96,9 @@ namespace PCOHRApp.DA
                 }
                 return result;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                throw ex;
             }
         }
     }

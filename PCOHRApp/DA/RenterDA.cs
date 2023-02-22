@@ -48,7 +48,7 @@ namespace PCOHRApp.DA
             return userList;
         }
 
-        public CurrnetHouseRenterVM GetCurrentHouseRenter(int houseId,int effectiveMonth, int effectiveYear)
+        public CurrnetHouseRenterVM GetCurrentHouseRenter(int houseId,int? effectiveMonth, int? effectiveYear)
         {
             DataTable dt = new DataTable();
             CurrnetHouseRenterVM result = null;
@@ -71,7 +71,7 @@ namespace PCOHRApp.DA
                 result = new CurrnetHouseRenterVM
                 {
                     renterHouseId = Convert.ToInt32(row["renterHouseId"]),
-                    caretakerName = row["renterName"].ToString(),
+                    caretakerName = row["caretakerName"].ToString(),
                     connectionMonth = row["connectionMonth"].ToString(),
                     currentRentAmount = Convert.ToDecimal(row["currentRentAmount"]),
                     houseType = row["houseType"].ToString(),

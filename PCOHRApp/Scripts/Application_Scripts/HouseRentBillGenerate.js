@@ -84,6 +84,7 @@
                 $('#caretakerNameId').val(data.data.caretakerName);
                 $('#connectionMonthId').val(data.data.connectionMonth);
                 $('#renterHouseId').val(data.data.renterHouseId);
+                $('#renterNId').val(data.data.renterNID);
             }
             else {
                 toastr.error(data.message);
@@ -98,6 +99,9 @@
         $('#renterPhoneNoId').val('');
         $('#renterNID').val('');
         $('#connectionMonthId').val('');
+        $('#renterNId').val('');
+        $('#monthlyRentId').val('');
+        $('#caretakerNameId').val('');
     }
     const showErrorMessage = errorText => {
         $('#messageBoxId').show();
@@ -121,9 +125,17 @@
         $('.individualCustomerDiv').hide();
         $('#isBatch').prop('checked', true);
         $('.switchery').trigger('click');
+        $('#projectId').val('0').trigger('change');
+        loadInitHouses();
         clearCustomerInfo();
 
     }
+
+    const loadInitHouses = () => {
+        let select = $("#houseId");
+        select.empty().trigger('change');
+        select.append($("<option>").val(0).text("Select House"));
+    };
     const loadBillDatatable = (month, year) => {
         var table = $('#billListTableId').DataTable();
         table.destroy();

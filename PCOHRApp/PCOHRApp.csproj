@@ -135,7 +135,9 @@
     <Compile Include="Controllers\DishBillGenerateController.cs" />
     <Compile Include="Controllers\DishBillCollectionController.cs" />
     <Compile Include="Controllers\DishMonthlyBillDeleteController.cs" />
+    <Compile Include="Controllers\HouseBillCollectionController.cs" />
     <Compile Include="Controllers\HouseRentBillGenerateController.cs" />
+    <Compile Include="Controllers\HouseRenterRequestController.cs" />
     <Compile Include="Controllers\HouseReportController.cs" />
     <Compile Include="Controllers\InternetSerialNoWiseTranController.cs" />
     <Compile Include="Controllers\DishSerialNoWiseTranController.cs" />
@@ -167,7 +169,9 @@
     <Compile Include="DA\DishConnectionDateModifyDA.cs" />
     <Compile Include="DA\DishCustomerDeleteDA.cs" />
     <Compile Include="DA\DishMonthlyBillDeleteDA.cs" />
+    <Compile Include="DA\HouseBillCollectionDA.cs" />
     <Compile Include="DA\HouseDA.cs" />
+    <Compile Include="DA\HouseRenterRequestDA.cs" />
     <Compile Include="DA\InternetBillCollectionDA.cs" />
     <Compile Include="DA\InternetBillGenerateDA.cs" />
     <Compile Include="DA\DesignationDA.cs" />
@@ -206,14 +210,18 @@
     <Compile Include="Models\DropdownVM.cs" />
     <Compile Include="Models\HostVM.cs" />
     <Compile Include="Models\HouseBillInformationVM.cs" />
+    <Compile Include="Models\HouseRenterBillCollectionVM.cs" />
+    <Compile Include="Models\HouseRenterRequestInfoVM.cs" />
     <Compile Include="Models\HouseVM.cs" />
     <Compile Include="Models\LordInfoVM.cs" />
     <Compile Include="Models\Param.cs" />
     <Compile Include="Models\PayedBillVM.cs" />
     <Compile Include="Models\PreviousBillInfoVM.cs" />
     <Compile Include="Models\ProjectVM.cs" />
+    <Compile Include="Models\HouseRenterRequestReqVM.cs" />
     <Compile Include="Models\RenterVM.cs" />
     <Compile Include="Models\RentVM.cs" />
+    <Compile Include="Models\UnPaidHouseBillVM.cs" />
     <Compile Include="Models\UnUpdatedHouseBillVM.cs" />
     <Compile Include="Models\UserPageVM.cs" />
     <Compile Include="Models\UserVM.cs" />
@@ -2616,6 +2624,8 @@
     <Content Include="Scripts\Application_Scripts\DataBaseBackUp.js" />
     <Content Include="Scripts\Application_Scripts\DishCustomerCardInfo.js" />
     <Content Include="Scripts\Application_Scripts\HouseRentBillGenerate.js" />
+    <Content Include="Scripts\Application_Scripts\HouseRenterBillCollection.js" />
+    <Content Include="Scripts\Application_Scripts\HouseRenterRequest.js" />
     <Content Include="Scripts\Application_Scripts\InternetBillCard.js" />
     <Content Include="Scripts\Application_Scripts\DishCollectionPageGroup.js" />
     <Content Include="Scripts\Application_Scripts\DishCollectionPageBetween.js" />
@@ -3172,6 +3182,10 @@
     <Content Include="Views\Shared\_HouseRentBillGenerateSelectCustomer.cshtml" />
     <Content Include="Views\Shared\_HouseRenterInfo.cshtml" />
     <Content Include="Views\HouseRentBillGenerate\UpdateBill.cshtml" />
+    <Content Include="Views\HouseRenterRequest\Index.cshtml" />
+    <Content Include="Views\Shared\_HouseRenterRequest.cshtml" />
+    <Content Include="Views\HouseBillCollection\Index.cshtml" />
+    <Content Include="Views\Shared\_HouseRentBillCollectionSelectCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3193,6 +3207,7 @@
     <EmbeddedResource Include="Reports\DishBillCollectionPageBetween.rdlc" />
     <EmbeddedResource Include="Reports\BillCard.rdlc" />
     <EmbeddedResource Include="Reports\HostList.rdlc" />
+    <EmbeddedResource Include="Reports\HouseReceipt.rdlc" />
     <EmbeddedResource Include="Reports\InternetBillCollectionPageBetween.rdlc" />
     <EmbeddedResource Include="Reports\InternetCollectionPageGroup.rdlc" />
     <EmbeddedResource Include="Reports\DishCollectionPageGroup.rdlc" />

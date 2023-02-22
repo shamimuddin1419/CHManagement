@@ -24,7 +24,7 @@ namespace PCOHRApp.Controllers
             return View();
         }
 
-        public JsonResult GetCurrentHouseRenterByHouse(int houseId,int effectiveMonth,int effectiveYear)
+        public JsonResult GetCurrentHouseRenterByHouse(int houseId,int? effectiveMonth,int? effectiveYear)
         {
             try
             {
