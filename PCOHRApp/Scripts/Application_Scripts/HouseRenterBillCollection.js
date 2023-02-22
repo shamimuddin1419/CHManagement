@@ -307,7 +307,6 @@
         $.post('/HouseBillCollection/InsertBillCollection', inputData, data => {
             if (data.success == true) {
                 showSuccessMessage(data.message);
-                //clearUI();
                 $('#btnDownloadId').show();
             }
             else if (data.success == false) {
@@ -341,8 +340,8 @@
     });
     $('#btnDownloadId').click(() => {
         generateRDLC('PDF', $('#billDetailId').val());
-        //$('#btnDownloadId').hide();
-        //clearUI();
+        $('#btnDownloadId').hide();
+        clearUI();
     });
 
     $('#btnListId').click(() => {
