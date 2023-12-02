@@ -184,7 +184,7 @@ function clearUI() {
     $('#shiftingFeeDueId').text('');
     $('#totalDueId').text('');
     $('#hostPhoneId').val('');
-    $('#collectionDateId').val('');
+    //$('#collectionDateId').val('');
     $('#SlNoId').val('');
     $('#discountId').val('0');
     

@@ -300,7 +300,7 @@ namespace PCOHRApp.DA
         {
             DataTable dt = new DataTable();
             List<BillCollectionVM> dueList = new List<BillCollectionVM>();
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(connectionString)) 
             {
                 SqlCommand cmd = new SqlCommand("rsp_getInternetCustomerDue", con);
                 cmd.CommandType = CommandType.StoredProcedure;

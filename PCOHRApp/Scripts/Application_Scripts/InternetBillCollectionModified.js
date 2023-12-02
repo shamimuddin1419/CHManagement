@@ -62,9 +62,9 @@ $('#btnSaveId').click(function () {
     //else if ($('#SlNoId').val() == '0') {
     //    showErrorMessage("Provide Serial No!");
     //}
-    //else if ($('#receivedById').val() == '0') {
-    //    showErrorMessage("Provide Received By!");
-    //}
+    else if ($('#receivedById').val() == '0') {
+        showErrorMessage("Provide Received By!");
+    }
     else {
         var months = [];
         $('.payCheck:checkbox:checked').each(function () {
@@ -188,7 +188,7 @@ function clearUI() {
     $('#shiftingFeeDueId').text('');
     $('#totalDueId').text('');
     $('#hostPhoneId').val('');
-    $('#collectionDateId').val('');
+    //$('#collectionDateId').val('');
     $('#SlNoId').val('');
     $('#discountId').val('0');
 
