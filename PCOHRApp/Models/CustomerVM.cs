@@ -45,5 +45,6 @@ namespace PCOHRApp.Models
         public string onuMCId { set; get; }
         public string nid { get; set; }
         public string disconnectedDateString { get; set; }
+        public string remarks { get; set; }
     }
 }

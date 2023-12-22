@@ -107,6 +107,7 @@ $('#btnCreateId').click(function () {
     $("#EntryDateDateId").data("DateTimePicker").date(null);
     $('#connMonthId').val('0');
     $('#connYearId').val('0');
+    $('#remarksId').val('');
     $('.select2').trigger('change');
     $('#isActive').prop('checked', true);
     $('.switchery').trigger('click');
@@ -166,7 +167,8 @@ $('#btnSaveId').click(function () {
             connMonth: $('#connMonthId').val(),
             connYear: $('#connYearId').val(),
             isActive: true,
-            nid: $('#nidId').val()
+            nid: $('#nidId').val(),
+            remarks: $('#remarksId').val()
         }
         if ($('#btnSaveId').text().indexOf('Save') >= 0) {
             inputData.insertFlag = 1;
@@ -259,6 +261,7 @@ function clearUI() {
     $('#connMonthId').val('0');
     $('#connYearId').val('0');
     $('#nidId').val('');
+    $('#remarksId').val('');
     $('.select2').trigger('change');
     $('#isActive').prop('checked', true);
     $('.switchery').trigger('click');
@@ -419,6 +422,7 @@ function EditCustomer(id) {
             $('#nidId').val(data.data.nid);
             $('#connFeeId').val(data.data.connFee);
             $('#connFeeId').prop('readonly', true);
+            $('#remarksId').val(data.data.remarks);
             $('#monthBillId').val(data.data.monthBill);
             $('#monthBillId').prop('readonly', true);
             $('#othersAmountId').val(data.data.othersAmount);

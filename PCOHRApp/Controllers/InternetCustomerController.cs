@@ -132,7 +132,15 @@ namespace PCOHRApp.Controllers
             }
             return Json(new { success = false }, JsonRequestBehavior.AllowGet);
         }
-
+        private string GenerateTextForCustomerListForDropdown(CustomerVM obj)
+        {
+            return obj.customerSerial
+                + "#" + obj.customerName
+                + "#" + obj.customerPhone
+                + "#" + obj.nid
+                + "#" + obj.onuMCId
+                + "#" + obj.remarks;
+        }
         public JsonResult GetCustomerListForDropdown(string search, int page, int selectedId, string searchBy = "")
         {
             try
@@ -144,7 +152,7 @@ namespace PCOHRApp.Controllers
                     || x.customerSerial.ToLower().StartsWith(search.ToLower()))).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid  + "#" + x.onuMCId
+                        text = GenerateTextForCustomerListForDropdown(x)
                     }).ToList();
                 }
                 else if (searchBy.ToLower() == "name")
@@ -153,7 +161,7 @@ namespace PCOHRApp.Controllers
                     || x.customerName.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid + "#" + x.onuMCId 
+                        text = GenerateTextForCustomerListForDropdown(x)
                     }).ToList();
                 }
                 else if (searchBy.ToLower() == "mobile")
@@ -162,7 +170,7 @@ namespace PCOHRApp.Controllers
                     || x.customerPhone.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid + "#" + x.onuMCId 
+                        text = GenerateTextForCustomerListForDropdown(x)
                     }).ToList();
                 }
                 else if (searchBy.ToLower() == "nid")
@@ -171,7 +179,16 @@ namespace PCOHRApp.Controllers
                     || x.nid.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid  + "#" + x.onuMCId 
+                        text = GenerateTextForCustomerListForDropdown(x)
+                    }).ToList();
+                }
+                else if (searchBy.ToLower() == "remarks")
+                {
+                    _objListAll = _internetCustomerDA.GetCustomerList().Where(x => x.isActive && ((search == null || search == "")
+                    || x.remarks.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
+                    {
+                        id = x.id,
+                        text = GenerateTextForCustomerListForDropdown(x)
                     }).ToList();
                 }
                 else if (searchBy.ToLower() == "onumc")
@@ -180,7 +197,7 @@ namespace PCOHRApp.Controllers
                     || x.onuMCId.ToLower().Contains(search.ToLower()))).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid  + "#" + x.onuMCId 
+                        text = GenerateTextForCustomerListForDropdown(x)
                     }).ToList();
                 }
                 else
@@ -191,7 +208,7 @@ namespace PCOHRApp.Controllers
                     || x.customerPhone.ToLower().Contains(search.ToLower()))).OrderByDescending(x => x.hostId).Select(x => new DropdownVM
                     {
                         id = x.id,
-                        text = x.customerSerial + "#" + x.customerName + "#" + x.customerPhone + "#" + x.nid ?? "" + "#" + x.onuMCId
+                        text = GenerateTextForCustomerListForDropdown(x)
                     }).ToList();
                 }
 

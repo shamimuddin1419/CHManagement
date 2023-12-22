@@ -42,6 +42,7 @@ namespace PCOHRApp.DA
                 cmd.Parameters.AddWithValue("@EntryDate", _obj.EntryDate);
                 cmd.Parameters.AddWithValue("@OnuMC", _obj.onuMCId);
                 cmd.Parameters.AddWithValue("@nid", _obj.nid);
+                cmd.Parameters.AddWithValue("@remarks", _obj.remarks);
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
@@ -99,6 +100,7 @@ namespace PCOHRApp.DA
                             isActiveString = rdr["isActiveString"].ToString(),
                             nid = rdr["nid"] == DBNull.Value ? null : rdr["nid"].ToString(),
                             onuMCId = rdr["OnuMC"] == DBNull.Value ? null : rdr["OnuMC"].ToString(),
+                            remarks = rdr["remarks"] == DBNull.Value ? null : rdr["remarks"].ToString()
                         }).ToList();
             return userList;
         }
@@ -144,6 +146,7 @@ namespace PCOHRApp.DA
                    _obj.nid = rdr["nid"].ToString();
                    _obj.isDisconnectedString = rdr["isDisconnectedString"].ToString();
                    _obj.disconnectedDateString = rdr["disconnectedDateString"].ToString();
+                    _obj.remarks = rdr["remarks"].ToString();
                 }
                 con.Close();
             }
@@ -182,6 +185,7 @@ namespace PCOHRApp.DA
                     _obj.connYear = Convert.ToInt32(rdr["connYear"]);
                     _obj.isActive = Convert.ToBoolean(rdr["isActive"]);
                     _obj.nid = rdr["nid"].ToString();
+                    _obj.remarks = rdr["remarks"].ToString();
                 }
                 con.Close();
             }
@@ -264,7 +268,8 @@ namespace PCOHRApp.DA
                             customerSerial = rdr["customerSerial"].ToString(),
                             customerPhone = rdr["customerPhone"].ToString(),
                             customerAddress = rdr["customerAddress"].ToString(),
-                            isActive = Convert.ToBoolean(rdr["isActive"])
+                            isActive = Convert.ToBoolean(rdr["isActive"]),
+                            remarks = rdr["remarks"].ToString()
                         }).ToList();
             return userList;
         }
