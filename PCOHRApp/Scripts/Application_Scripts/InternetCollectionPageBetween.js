@@ -30,7 +30,7 @@ function GenerateRDLC(fileType) {
     else if (topageNo == "0") {
         showErrorMessage('Provide to Page Number!!');
     }
-    else if (pageNo > topageNo) {
+    else if (parseInt(pageNo) > parseInt(topageNo)) {
         showErrorMessage('From Page Number cannot be greater than To Page Number!!');
     }
     else {

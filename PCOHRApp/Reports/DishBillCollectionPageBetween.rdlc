@@ -880,7 +880,7 @@
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!pageNo.Value</Value>
+                  <Value>=CInt(Fields!pageNo.Value)</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixMembers>
@@ -1263,7 +1263,6 @@
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="pageNo">
-          <DataField>pageNo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="collectedBy">
